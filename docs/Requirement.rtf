@@ -1,0 +1,206 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil Calibri;}}
+{\colortbl ;\red54\green95\blue145;\red79\green129\blue189;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\keep\keepn\sb200\sl276\slmult1\cf1\b\f0\fs28\lang9 Software Requirements Specification (SRS)\par
+Multi-Tenant CRM, Quoting, Production & Order Management \line\line Platform\cf2\fs26 Project Overview\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 This document defines the requirements for a multi-tenant SaaS CRM, quotation, order management, production, invoicing, payment, reporting and customer portal platform. The goal is to centralize business operations into one secure and scalable application.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Business Objectives\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 The system shall manage leads, customers, quotations, orders, production, artwork approvals, invoicing, payments, reporting and customer communication while supporting multiple companies with isolated data.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Architecture\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Modular web application with authentication, CRM, catalog, quoting, production, finance, reporting and APIs. Multi-tenant data isolation and role-based access control.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 User Roles\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Super Admin, Company Admin, Sales Representative, Production Manager, Designer, Finance Staff and Customer.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Authentication\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Secure login, logout, password reset, email verification, session management, optional MFA, audit logs and encrypted passwords.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Dashboard\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Role-based dashboard with leads, quotes, orders, production, invoices, reminders, notifications and analytics.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 CRM\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Maintain one master customer profile linked to leads, quotes, orders, payments, files, notes and communications.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Customer Management\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Store company details, contacts, billing/shipping addresses, notes, files, tags, follow-ups and full activity timeline.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Lead Management\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Capture leads, assign sales staff, track stages, activities, reminders and convert qualified leads into customers without losing history.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Sample Tracking\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Track requested samples, shipping, delivery, follow-ups and conversion into sales.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Product Catalog\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Manage products, services, categories, variants, pricing, images, attributes, inventory and search.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Inventory\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Support warehouses, stock movements, reorder alerts and inventory history.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Pricing Rules\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Support quantity discounts, customer-specific pricing, promotions and contract pricing.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Quote Builder\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Create quotations with products, services, discounts, taxes, optional items, payment plans, templates, approvals, PDFs, email delivery, version history and one-click conversion to orders.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Order Management\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Manage order lifecycle, timelines, attachments, statuses, searches and business rules after quote approval.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Production\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Automatically generate production jobs, assign tasks, monitor progress, schedules and quality control.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Kanban\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Drag-and-drop production workflow with configurable stages and filtering.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Artwork Approval\par
+Customer Portal\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Customers shall view quotes, approve artwork, track orders, download invoices, make payments, exchange messages and manage their profile securely.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Company Stores\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Support branded storefronts with custom products, pricing, approval workflows and purchaser permissions.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Notifications\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Provide in-app and email notifications for business events including leads, quotes, orders, production, invoices and messages.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Email Engine\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Support templates, scheduling, tracking, personalization and automated emails.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Document Management\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Store and version customer, order, production and finance documents with role-based permissions.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Invoice Management\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Generate invoices automatically from payment plans and orders. Track paid, unpaid, overdue and cancelled invoices.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Payments\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Support deposits, partial payments, refunds and payment history.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Integrations\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Integrate Stripe, Square and QuickBooks. Design architecture for future integrations.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Reporting\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Provide dashboards for sales, production, finance, inventory, customer activity and operational KPIs with export to PDF/Excel.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 SaaS & White Label\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Support multiple companies with isolated data, branding, domains, subscription management and feature controls.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Security\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Role permissions, encryption, audit logs, backups, secure APIs, password policies and data isolation.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 API\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 REST APIs with authentication, validation, pagination, logging and documentation.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Database\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Normalized relational database supporting tenants, users, CRM, catalog, quotes, orders, production, invoices, payments, files and reporting.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Testing\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Unit, integration, user acceptance, performance and security testing before deployment.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Deployment\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Production deployment, documentation, backup strategy, monitoring and maintenance.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 Acceptance Criteria\par
+\cf0\b0\fs22 Every module must function according to this specification, be fully tested, production-ready and scalable without requiring major architectural changes.\line\line\line\cf2\b\fs26 26. Invoice Management\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 The system shall generate invoices automatically from approved orders and payment plans.\line Features:\line\f1\bullet\f0  Automatic invoice numbering\line\f1\bullet\f0  Draft, Sent, Paid, Partially Paid, Overdue, Cancelled statuses\line\f1\bullet\f0  Multiple tax rules\line\f1\bullet\f0  Credit notes\line\f1\bullet\f0  PDF invoice generation\line\f1\bullet\f0  Email delivery\line\f1\bullet\f0  Payment reminders\line\f1\bullet\f0  Customer invoice history\line Business Rules:\line\f1\bullet\f0  Deposits create deposit invoices automatically.\line\f1\bullet\f0  Final invoices deduct previous deposits.\line\f1\bullet\f0  Every invoice is linked to its customer and order.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 27. Payment Management\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Support one-time, partial and milestone payments.\line Record payment method, transaction reference, amount, date, user, status and notes.\line Support refunds, failed payments and payment reconciliation.\line Maintain a complete payment history.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 28. Payment Gateway Integrations\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Integrate Stripe and Square.\line Features:\line\f1\bullet\f0  Secure checkout\line\f1\bullet\f0  Hosted payment pages\line\f1\bullet\f0  Deposit payments\line\f1\bullet\f0  Partial payments\line\f1\bullet\f0  Saved payment status\line\f1\bullet\f0  Webhook processing\line\f1\bullet\f0  Automatic invoice updates after successful payment.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 29. Accounting Integration\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Integrate with QuickBooks.\line Synchronize customers, invoices, payments and accounting records.\line Support manual and automatic synchronization.\line Log all synchronization activity and errors.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 30. Reporting & Analytics\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Provide dashboards for:\line\f1\bullet\f0  Sales\line\f1\bullet\f0  Leads\line\f1\bullet\f0  Quotes\line\f1\bullet\f0  Orders\line\f1\bullet\f0  Production\line\f1\bullet\f0  Inventory\line\f1\bullet\f0  Payments\line\f1\bullet\f0  Revenue\line\f1\bullet\f0  Customer activity\line\f1\bullet\f0  Staff performance\line Support filtering, scheduled reports and export to PDF/Excel.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 31. SaaS Management\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Support multiple companies (tenants).\line Each tenant shall have isolated:\line\f1\bullet\f0  Users\line\f1\bullet\f0  Customers\line\f1\bullet\f0  Products\line\f1\bullet\f0  Quotes\line\f1\bullet\f0  Orders\line\f1\bullet\f0  Reports\line\f1\bullet\f0  Branding\line Support subscription plans, feature flags and usage limits.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 32. White Label\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Allow each company to configure:\line\f1\bullet\f0  Logo\line\f1\bullet\f0  Brand colours\line\f1\bullet\f0  Email templates\line\f1\bullet\f0  Domain\line\f1\bullet\f0  PDF branding\line\f1\bullet\f0  Portal branding\line The platform owner shall manage global defaults.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 33. Settings\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Company administrators shall configure:\line\f1\bullet\f0  Company profile\line\f1\bullet\f0  Taxes\line\f1\bullet\f0  Currency\line\f1\bullet\f0  Time zone\line\f1\bullet\f0  Email settings\line\f1\bullet\f0  Payment gateways\line\f1\bullet\f0  Quote templates\line\f1\bullet\f0  Invoice templates\line\f1\bullet\f0  Production workflow\line\f1\bullet\f0  User permissions\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 34. Security\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Use encrypted passwords, HTTPS, role-based permissions, audit logs, secure file storage, CSRF/XSS protection, rate limiting, backups and tenant data isolation.\line Every important action shall be logged.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 35. Database Design\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Core entities:\line Tenant\line User\line Role\line Permission\line Lead\line Customer\line Contact\line Product\line Variant\line Quote\line Quote Item\line Order\line Order Item\line Production Job\line Artwork\line Invoice\line Payment\line Notification\line Message\line Attachment\line Report\line Each entity shall maintain created/updated timestamps and audit references.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 36. API Specification\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 REST API endpoints shall be documented for every module.\line Support authentication, authorization, validation, pagination, filtering, search and standardized error responses.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 37. Performance Requirements\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Average page response under 2 seconds under normal load.\line Support background jobs for email, notifications and large reports.\line Optimize database queries and caching.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 38. Backup & Recovery\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Automated daily backups.\line Restore procedures shall be documented.\line Backups shall be encrypted and retained according to company policy.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 39. Testing\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Perform:\line\f1\bullet\f0  Unit Testing\line\f1\bullet\f0  Integration Testing\line\f1\bullet\f0  System Testing\line\f1\bullet\f0  User Acceptance Testing\line\f1\bullet\f0  Performance Testing\line\f1\bullet\f0  Security Testing\line Every module shall pass testing before production deployment.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 40. Deployment\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Provide production deployment guide, environment configuration, monitoring, logging, SSL configuration and administrator documentation.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 41. Acceptance Criteria\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 The project shall be accepted only when:\line\f1\bullet\f0  Every module described in this SRS functions correctly.\line\f1\bullet\f0  All integrations work.\line\f1\bullet\f0  User roles and permissions are enforced.\line\f1\bullet\f0  Reports are accurate.\line\f1\bullet\f0  Production workflow is operational.\line\f1\bullet\f0  Customer portal is fully functional.\line\f1\bullet\f0  The application is stable, secure, scalable and documented.\par
+
+\pard\keep\keepn\sb200\sl276\slmult1\cf2\b\fs26 42. Future Enhancements\par
+
+\pard\sa200\sl276\slmult1\cf0\b0\fs22 Architecture shall support future mobile applications, AI-powered recommendations, advanced automation, warehouse scanning, multi-language support and additional payment gateways without major redesign.\par
+\par
+\par
+\par
+}
+ 
