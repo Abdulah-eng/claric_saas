@@ -50,7 +50,7 @@ function CreateStoreModal({ onClose, onCreated }: { onClose: () => void, onCreat
           )}
           <div>
             <label className="mb-1.5 block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white">Store Name</label>
-            <input name="name" required placeholder="e.g. Main Storefront" className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent px-3 py-2 text-sm outline-none focus:border-blue-500 dark:border-white/10 dark:text-white" />
+            <input name="name" required placeholder="e.g. Main Storefront" className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent px-3 py-2 text-sm outline-none focus:border-primary dark:border-white/10 dark:text-white" />
           </div>
           <div>
             <label className="mb-1.5 block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white">Store URL Slug</label>
@@ -61,15 +61,15 @@ function CreateStoreModal({ onClose, onCreated }: { onClose: () => void, onCreat
           </div>
           <div>
             <label className="mb-1.5 block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white">Description (optional)</label>
-            <textarea name="description" rows={3} placeholder="Brief description of this store..." className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent px-3 py-2 text-sm outline-none focus:border-blue-500 dark:border-white/10 dark:text-white resize-none" />
+            <textarea name="description" rows={3} placeholder="Brief description of this store..." className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent px-3 py-2 text-sm outline-none focus:border-primary dark:border-white/10 dark:text-white resize-none" />
           </div>
           <div className="flex items-center gap-3">
-            <input type="checkbox" name="isPublic" id="isPublic" className="h-4 w-4 rounded border-gray-300 text-blue-600" />
+            <input type="checkbox" name="isPublic" id="isPublic" className="h-4 w-4 rounded border-gray-300 text-primary" />
             <label htmlFor="isPublic" className="text-sm text-[hsl(222,47%,11%)] dark:text-white">Make store publicly accessible</label>
           </div>
           <div className="flex justify-end gap-3 pt-2">
             <button type="button" onClick={onClose} className="rounded-lg px-4 py-2 text-sm font-medium text-[hsl(215,16%,47%)] hover:bg-[hsl(214,32%,91%)] dark:hover:bg-white/10">Cancel</button>
-            <button type="submit" disabled={loading} className="flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-60">
+            <button type="submit" disabled={loading} className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-60">
               {loading && <Loader2 className="h-4 w-4 animate-spin" />}
               Create Store
             </button>
@@ -166,7 +166,7 @@ function StoreCard({ store, onRefresh }: { store: any, onRefresh: () => void }) 
           {store.isActive ? 'Active' : 'Inactive'}
         </span>
         <span className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium ${store.isPublic
-          ? 'bg-blue-100 text-blue-700 dark:bg-blue-500/20 dark:text-blue-400'
+          ? 'bg-primary/10 text-primary dark:bg-primary/20 dark:text-blue-400'
           : 'bg-gray-100 text-gray-600 dark:bg-white/10 dark:text-gray-400'}`}
         >
           <Globe className="h-3 w-3" />
@@ -178,7 +178,7 @@ function StoreCard({ store, onRefresh }: { store: any, onRefresh: () => void }) 
       <div className="flex items-center gap-2">
         <button
           onClick={copyUrl}
-          className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-[hsl(214,32%,91%)] px-3 py-2 text-sm font-medium text-[hsl(215,16%,47%)] transition-colors hover:border-blue-500 hover:text-blue-600 dark:border-white/10"
+          className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-[hsl(214,32%,91%)] px-3 py-2 text-sm font-medium text-[hsl(215,16%,47%)] transition-colors hover:border-primary hover:text-primary dark:border-white/10"
         >
           {copied ? <Check className="h-4 w-4 text-emerald-500" /> : <Copy className="h-4 w-4" />}
           {copied ? 'Copied!' : 'Copy URL'}
@@ -187,7 +187,7 @@ function StoreCard({ store, onRefresh }: { store: any, onRefresh: () => void }) 
           href={storeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 rounded-lg border border-[hsl(214,32%,91%)] px-3 py-2 text-sm font-medium text-[hsl(215,16%,47%)] transition-colors hover:border-blue-500 hover:text-blue-600 dark:border-white/10"
+          className="flex items-center justify-center gap-2 rounded-lg border border-[hsl(214,32%,91%)] px-3 py-2 text-sm font-medium text-[hsl(215,16%,47%)] transition-colors hover:border-primary hover:text-primary dark:border-white/10"
         >
           <ExternalLink className="h-4 w-4" /> Preview
         </a>
@@ -220,7 +220,7 @@ export default function CompanyStoresPage() {
         />
         <button
           onClick={() => setShowCreate(true)}
-          className="flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+          className="flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
         >
           <Plus className="h-4 w-4" /> Create Store
         </button>
@@ -239,7 +239,7 @@ export default function CompanyStoresPage() {
           <p className="mt-1 text-sm text-[hsl(215,16%,47%)]">Create your first customer-facing storefront.</p>
           <button
             onClick={() => setShowCreate(true)}
-            className="mt-6 flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
+            className="mt-6 flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
           >
             <Plus className="h-4 w-4" /> Create Store
           </button>

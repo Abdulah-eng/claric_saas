@@ -110,7 +110,7 @@ export function TopBar({ user }: Props) {
             onClick={() => setShowUserMenu(!showUserMenu)}
             className="flex items-center gap-2.5 rounded-lg px-2 py-1.5 transition-all hover:bg-[hsl(210,40%,96%)] dark:hover:bg-[hsl(217,33%,17%)]"
           >
-            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[hsl(221,83%,53%)] text-xs font-bold text-white">
+            <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[hsl(var(--primary))] text-xs font-bold text-white">
               {user?.name?.slice(0, 2).toUpperCase() ?? 'U'}
             </div>
             <div className="hidden text-left sm:block">
@@ -219,7 +219,7 @@ export function TopBar({ user }: Props) {
                       <h4 className="text-xs font-semibold uppercase tracking-wider text-[hsl(215,16%,47%)] mb-2 px-2">Orders</h4>
                       {searchResults.orders.map((o: any) => (
                         <div key={o.id} onClick={() => { setShowSearchModal(false); router.push(`/dashboard/orders/${o.id}`) }} className="p-3 rounded-lg hover:bg-[hsl(210,40%,96%)] dark:hover:bg-white/5 cursor-pointer flex items-center gap-3">
-                          <Box className="h-4 w-4 text-blue-500" />
+                          <Box className="h-4 w-4 text-primary" />
                           <div>
                             <p className="font-medium text-[hsl(222,47%,11%)] dark:text-white">{o.orderNumber}</p>
                             <p className="text-xs text-[hsl(215,16%,47%)]">{o.status}</p>

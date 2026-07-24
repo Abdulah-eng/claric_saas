@@ -20,6 +20,7 @@ type Customer = {
   tags: string[]
   createdAt: string
   type: string
+  contacts?: Array<{ id: string; firstName: string; lastName: string; isPrimary: boolean; email?: string | null; phone?: string | null }>
   _count: { quotes: number; orders: number; contacts: number }
 }
 
@@ -120,76 +121,62 @@ export default function CustomersPage() {
 
   const columns = [
     {
-      key: 'company',
-      header: 'Company',
+      key: 'name',
+      header: 'Name',
       render: (row: Customer) => (
-        <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 text-xs font-bold text-white">
-            {getInitials(row.companyName)}
-          </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <p className="font-medium text-[hsl(222,47%,11%)] dark:text-white">{row.companyName}</p>
-              <Badge variant="outline" className="text-[10px]">{row.type === 'INDIVIDUAL' ? 'Individual' : 'Business'}</Badge>
-            </div>
-            {row.billingCity && (
-              <p className="text-xs text-[hsl(215,16%,47%)]">
-                {row.billingCity}, {row.billingCountry}
-              </p>
-            )}
-          </div>
-        </div>
+        <span className="font-semibold text-[hsl(222,47%,11%)] dark:text-white hover:underline cursor-pointer">
+          {row.companyName}
+        </span>
       ),
     },
     {
-      key: 'contact',
-      header: 'Contact',
+      key: 'type',
+      header: 'Type',
       render: (row: Customer) => (
-        <div className="space-y-0.5">
-          {row.email && (
-            <div className="flex items-center gap-1.5 text-xs text-[hsl(215,16%,47%)]">
-              <Mail className="h-3 w-3" /> {row.email}
-            </div>
-          )}
-          {row.phone && (
-            <div className="flex items-center gap-1.5 text-xs text-[hsl(215,16%,47%)]">
-              <Phone className="h-3 w-3" /> {row.phone}
-            </div>
-          )}
-        </div>
+        row.type === 'INDIVIDUAL' ? (
+          <span className="text-primary dark:text-blue-400 font-medium text-sm">Individual</span>
+        ) : (
+          <span className="text-red-600 dark:text-red-400 font-medium text-sm">Business</span>
+        )
       ),
     },
     {
-      key: 'tags',
-      header: 'Tags',
-      render: (row: Customer) => (
-        <div className="flex flex-wrap gap-1">
-          {row.tags.slice(0, 3).map((tag) => (
-            <Badge key={tag} variant="outline" className="text-[10px]">
-              {tag}
-            </Badge>
-          ))}
-          {row.tags.length > 3 && (
-            <Badge variant="outline" className="text-[10px]">+{row.tags.length - 3}</Badge>
-          )}
-        </div>
-      ),
+      key: 'primaryContact',
+      header: 'Primary Contact',
+      render: (row: Customer) => {
+        const primary = row.contacts?.find((c: any) => c.isPrimary) || row.contacts?.[0]
+        return (
+          <span className="text-[hsl(222,47%,11%)] dark:text-white">
+            {primary ? `${primary.firstName} ${primary.lastName}` : (row.type === 'INDIVIDUAL' ? row.companyName : '—')}
+          </span>
+        )
+      },
     },
     {
-      key: 'activity',
-      header: 'Activity',
-      render: (row: Customer) => (
-        <div className="flex items-center gap-3 text-xs text-[hsl(215,16%,47%)]">
-          <span title="Quotes">{row._count.quotes} quotes</span>
-          <span title="Orders">{row._count.orders} orders</span>
-        </div>
-      ),
+      key: 'email',
+      header: 'Email',
+      render: (row: Customer) => {
+        const primary = row.contacts?.find((c: any) => c.isPrimary) || row.contacts?.[0]
+        const emailVal = row.email || primary?.email || '—'
+        return <span className="text-[hsl(215,16%,47%)]">{emailVal}</span>
+      },
     },
     {
-      key: 'createdAt',
-      header: 'Created',
+      key: 'phone',
+      header: 'Phone',
+      render: (row: Customer) => {
+        const primary = row.contacts?.find((c: any) => c.isPrimary) || row.contacts?.[0]
+        const phoneVal = row.phone || primary?.phone || '—'
+        return <span className="text-[hsl(215,16%,47%)]">{phoneVal}</span>
+      },
+    },
+    {
+      key: 'contacts',
+      header: 'Contacts',
       render: (row: Customer) => (
-        <span className="text-xs text-[hsl(215,16%,47%)]">{formatDate(row.createdAt)}</span>
+        <span className="text-[hsl(215,16%,47%)] font-medium">
+          {row._count?.contacts ?? row.contacts?.length ?? 0}
+        </span>
       ),
     },
   ]
@@ -197,16 +184,17 @@ export default function CustomersPage() {
   return (
     <>
       <PageHeader
-        title="Customers"
-        description={`${total} total customers`}
-        breadcrumbs={[{ label: 'CRM' }, { label: 'Customers' }]}
+        title="Clients"
+        description="Businesses and individuals, with their contacts."
+        breadcrumbs={[{ label: 'CRM' }, { label: 'Clients' }]}
         actions={
           <Button
-            id="btn-new-customer"
+            id="btn-quick-add-lead"
             icon={<Plus className="h-4 w-4" />}
-            onClick={() => setShowCreate(true)}
+            onClick={() => router.push('/dashboard/leads/new')}
+            className="bg-orange-600 hover:bg-orange-700 text-white font-semibold border-none rounded-lg px-4"
           >
-            New Customer
+            Quick Add Lead
           </Button>
         }
       />
@@ -220,7 +208,7 @@ export default function CustomersPage() {
             placeholder="Search customers..."
             value={search}
             onChange={(e) => { setSearch(e.target.value); setPage(1) }}
-            className="h-9 w-full rounded-lg border border-[hsl(214,32%,91%)] bg-white pl-9 pr-3 text-sm text-[hsl(222,47%,11%)] placeholder:text-[hsl(215,16%,60%)] outline-none focus:border-[hsl(221,83%,53%)] focus:ring-2 focus:ring-[hsl(221,83%,53%)]/20 dark:border-[hsl(217,33%,17%)] dark:bg-[hsl(222,47%,11%)] dark:text-white"
+            className="h-9 w-full rounded-lg border border-[hsl(214,32%,91%)] bg-white pl-9 pr-3 text-sm text-[hsl(222,47%,11%)] placeholder:text-[hsl(215,16%,60%)] outline-none focus:border-[hsl(var(--primary))] focus:ring-2 focus:ring-[hsl(var(--primary))]/20 dark:border-[hsl(217,33%,17%)] dark:bg-[hsl(222,47%,11%)] dark:text-white"
           />
         </div>
         <Button variant="outline" size="sm" icon={<Filter className="h-3.5 w-3.5" />}>

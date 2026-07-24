@@ -19,7 +19,7 @@ export default function CustomerPortalPage({ params }: { params: Promise<{ custo
       .finally(() => setLoading(false))
   }, [customerId])
 
-  if (loading) return <div className="min-h-screen bg-[hsl(210,40%,98%)] p-8 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div></div>
+  if (loading) return <div className="min-h-screen bg-[hsl(210,40%,98%)] p-8 flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>
   if (!customer) return <div className="min-h-screen bg-[hsl(210,40%,98%)] p-8 text-center text-red-500 font-medium">Customer portal not found.</div>
 
   return (
@@ -27,7 +27,7 @@ export default function CustomerPortalPage({ params }: { params: Promise<{ custo
       <header className="bg-white dark:bg-[hsl(222,47%,11%)] border-b border-[hsl(214,32%,91%)] dark:border-white/5 py-4 px-8 sticky top-0 z-10 shadow-sm">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
+            <div className="h-10 w-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">
               {customer.companyName.charAt(0)}
             </div>
             <div>
@@ -35,7 +35,7 @@ export default function CustomerPortalPage({ params }: { params: Promise<{ custo
               <p className="text-xs text-[hsl(215,16%,47%)]">Customer Portal</p>
             </div>
           </div>
-          <a href={`mailto:${customer.email}`} className="text-sm text-blue-600 hover:underline">Contact Support</a>
+          <a href={`mailto:${customer.email}`} className="text-sm text-primary hover:underline">Contact Support</a>
         </div>
       </header>
 
@@ -45,7 +45,7 @@ export default function CustomerPortalPage({ params }: { params: Promise<{ custo
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white dark:bg-[hsl(217,33%,17%)] p-6 rounded-2xl shadow-sm border border-[hsl(214,32%,91%)] dark:border-white/5">
             <div className="flex justify-between items-start mb-4">
-              <div className="bg-blue-100 dark:bg-blue-500/20 p-3 rounded-xl text-blue-600 dark:text-blue-400">
+              <div className="bg-primary/10 dark:bg-primary/20 p-3 rounded-xl text-primary dark:text-blue-400">
                 <Box className="h-6 w-6" />
               </div>
             </div>
@@ -84,7 +84,7 @@ export default function CustomerPortalPage({ params }: { params: Promise<{ custo
         <div className="bg-white dark:bg-[hsl(217,33%,17%)] rounded-2xl shadow-sm border border-[hsl(214,32%,91%)] dark:border-white/5 overflow-hidden">
           <div className="p-6 border-b border-[hsl(214,32%,91%)] dark:border-white/5 flex justify-between items-center">
             <h2 className="text-lg font-bold text-[hsl(222,47%,11%)] dark:text-white flex items-center gap-2">
-              <Box className="h-5 w-5 text-blue-500" /> Recent Orders
+              <Box className="h-5 w-5 text-primary" /> Recent Orders
             </h2>
           </div>
           <div className="overflow-x-auto">
@@ -103,7 +103,7 @@ export default function CustomerPortalPage({ params }: { params: Promise<{ custo
                     <td className="px-6 py-4 font-semibold text-[hsl(222,47%,11%)] dark:text-white">{order.orderNumber}</td>
                     <td className="px-6 py-4 text-[hsl(215,16%,47%)]">{formatDate(order.createdAt)}</td>
                     <td className="px-6 py-4">
-                      <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-700 dark:bg-blue-500/20 dark:text-blue-400">
+                      <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-blue-400">
                         {order.status.replace('_', ' ')}
                       </span>
                     </td>
@@ -136,7 +136,7 @@ export default function CustomerPortalPage({ params }: { params: Promise<{ custo
                   </div>
                   <div className="flex items-center gap-4">
                     <span className="text-sm font-medium">{formatCurrency(quote.total)}</span>
-                    <a href={`/quote/${quote.id}`} target="_blank" rel="noreferrer" className="text-blue-600 hover:text-blue-700 p-2 rounded-full hover:bg-blue-50 dark:hover:bg-blue-500/10">
+                    <a href={`/quote/${quote.id}`} target="_blank" rel="noreferrer" className="text-primary hover:text-primary p-2 rounded-full hover:bg-primary/10 dark:hover:bg-primary/10">
                       <ExternalLink className="h-4 w-4" />
                     </a>
                   </div>
@@ -165,7 +165,7 @@ export default function CustomerPortalPage({ params }: { params: Promise<{ custo
                   </div>
                   <div className="flex items-center gap-4">
                     <span className="text-sm font-medium">{formatCurrency(inv.total)}</span>
-                    <button className="text-blue-600 hover:text-blue-700 p-2 rounded-full hover:bg-blue-50 dark:hover:bg-blue-500/10">
+                    <button className="text-primary hover:text-primary p-2 rounded-full hover:bg-primary/10 dark:hover:bg-primary/10">
                       <ExternalLink className="h-4 w-4" />
                     </button>
                   </div>

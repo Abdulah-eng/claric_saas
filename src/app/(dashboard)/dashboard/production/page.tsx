@@ -104,10 +104,10 @@ export default function ProductionKanbanPage() {
                       draggable 
                       onDragStart={(e) => handleDragStart(e, job.id)}
                       onClick={() => router.push(`/dashboard/production/${job.id}`)}
-                      className="bg-white dark:bg-[hsl(222,47%,11%)] p-4 rounded-lg shadow-sm border border-[hsl(214,32%,91%)] dark:border-white/10 cursor-grab active:cursor-grabbing hover:border-blue-500 transition-colors"
+                      className="bg-white dark:bg-[hsl(222,47%,11%)] p-4 rounded-lg shadow-sm border border-[hsl(214,32%,91%)] dark:border-white/10 cursor-grab active:cursor-grabbing hover:border-primary transition-colors"
                     >
                       <div className="flex justify-between items-start mb-2">
-                        <span className="text-xs font-bold px-2 py-1 bg-blue-50 text-blue-700 dark:bg-blue-500/20 dark:text-blue-400 rounded-md">
+                        <span className="text-xs font-bold px-2 py-1 bg-primary/10 text-primary dark:bg-primary/20 dark:text-blue-400 rounded-md">
                           {job.order.orderNumber}
                         </span>
                         <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase ${job.status === 'IN_PROGRESS' ? 'bg-emerald-100 text-emerald-700' : job.status === 'ON_HOLD' ? 'bg-orange-100 text-orange-700' : 'bg-gray-100 text-gray-700'}`}>
@@ -158,7 +158,7 @@ export default function ProductionKanbanPage() {
                   <td className="px-4 py-3 text-[hsl(215,16%,47%)]">{job.order.customer.companyName}</td>
                   <td className="px-4 py-3 text-[hsl(215,16%,47%)]">{STAGES.find(s => s.id === job.stage)?.title || job.stage}</td>
                   <td className="px-4 py-3">
-                    <span className={`text-[10px] px-2 py-1 rounded-full font-bold uppercase ${job.status === 'IN_PROGRESS' ? 'bg-emerald-100 text-emerald-700' : job.status === 'DONE' ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-700'}`}>
+                    <span className={`text-[10px] px-2 py-1 rounded-full font-bold uppercase ${job.status === 'IN_PROGRESS' ? 'bg-emerald-100 text-emerald-700' : job.status === 'DONE' ? 'bg-primary/10 text-primary' : 'bg-gray-100 text-gray-700'}`}>
                       {job.status.replace('_', ' ')}
                     </span>
                   </td>

@@ -98,7 +98,7 @@ export async function TenantDashboard({ session }: { session: any }) {
       change: '+12.5%',
       trend: 'up' as const,
       icon: DollarSign,
-      color: 'bg-gradient-to-br from-blue-500 to-blue-600',
+      color: 'bg-gradient-to-br from-primary to-primary',
     },
     {
       label: 'Active Leads',
@@ -145,7 +145,7 @@ export async function TenantDashboard({ session }: { session: any }) {
   const recentActivity = [
     {
       icon: ShoppingCart,
-      color: 'bg-blue-500',
+      color: 'bg-primary',
       title: 'New order ORD-00123 created',
       subtitle: 'Acme Corp · $4,200',
       time: '2m ago',
@@ -196,8 +196,7 @@ export async function TenantDashboard({ session }: { session: any }) {
             Good {getGreeting()},{' '}
             <span className="gradient-text">
               {session?.user?.name?.split(' ')[0] ?? 'there'}
-            </span>{' '}
-            👋
+            </span>
           </h1>
           <p className="mt-1 text-sm text-[hsl(215,16%,47%)]">
             Here&apos;s what&apos;s happening with your business today.
@@ -224,7 +223,7 @@ export async function TenantDashboard({ session }: { session: any }) {
             <h2 className="text-base font-semibold text-[hsl(222,47%,11%)] dark:text-white">
               Recent Activity
             </h2>
-            <button className="text-xs text-[hsl(221,83%,53%)] hover:underline">View all</button>
+            <button className="text-xs text-[hsl(var(--primary))] hover:underline">View all</button>
           </div>
           <div className="divide-y divide-[hsl(214,32%,91%)] dark:divide-[hsl(217,33%,17%)]">
             {recentActivity.map((item, i) => (
@@ -241,7 +240,7 @@ export async function TenantDashboard({ session }: { session: any }) {
           <div className="grid grid-cols-2 gap-2">
             {[
               { label: 'New Lead', icon: UserSearch, color: 'from-purple-500 to-purple-600', href: '/dashboard/leads/new' },
-              { label: 'New Quote', icon: FileText, color: 'from-blue-500 to-blue-600', href: '/dashboard/quotes/new' },
+              { label: 'New Quote', icon: FileText, color: 'from-primary to-primary', href: '/dashboard/quotes/new' },
               { label: 'New Customer', icon: Users, color: 'from-sky-500 to-sky-600', href: '/dashboard/customers/new' },
               { label: 'New Order', icon: ShoppingCart, color: 'from-emerald-500 to-emerald-600', href: '/dashboard/orders/new' },
             ].map((action) => (

@@ -53,7 +53,7 @@ export default function OrdersPage() {
       header: 'Status',
       accessor: (row: any) => {
         const colors: Record<string, string> = {
-          CONFIRMED: 'bg-blue-100 text-blue-700 dark:bg-blue-500/20 dark:text-blue-400',
+          CONFIRMED: 'bg-primary/10 text-primary dark:bg-primary/20 dark:text-blue-400',
           IN_PRODUCTION: 'bg-purple-100 text-purple-700 dark:bg-purple-500/20 dark:text-purple-400',
           QUALITY_CHECK: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-500/20 dark:text-yellow-400',
           READY: 'bg-orange-100 text-orange-700 dark:bg-orange-500/20 dark:text-orange-400',

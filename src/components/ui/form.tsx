@@ -39,10 +39,10 @@ export function Input({
           id={id}
           className={cn(
             'flex h-9 w-full rounded-lg border border-[hsl(214,32%,91%)] bg-white px-3 py-2 text-sm text-[hsl(222,47%,11%)] placeholder:text-[hsl(215,16%,60%)] outline-none transition-all',
-            'focus:border-[hsl(221,83%,53%)] focus:ring-2 focus:ring-[hsl(221,83%,53%)]/20',
+            'focus:border-[hsl(var(--primary))] focus:ring-2 focus:ring-[hsl(var(--primary))]/20',
             'disabled:cursor-not-allowed disabled:opacity-50',
             'dark:border-[hsl(217,33%,17%)] dark:bg-[hsl(217,33%,17%)] dark:text-white dark:placeholder:text-[hsl(215,20%,40%)]',
-            'dark:focus:border-[hsl(221,83%,60%)] dark:focus:ring-[hsl(221,83%,60%)]/20',
+            'dark:focus:border-[hsl(var(--primary))] dark:focus:ring-[hsl(var(--primary))]/20',
             error && 'border-red-400 focus:border-red-500 focus:ring-red-500/20',
             leftIcon && 'pl-9',
             rightIcon && 'pr-9',
@@ -86,7 +86,7 @@ export function Select({ label, error, hint, options, placeholder, className, id
         id={id}
         className={cn(
           'flex h-9 w-full rounded-lg border border-[hsl(214,32%,91%)] bg-white px-3 py-2 text-sm text-[hsl(222,47%,11%)] outline-none transition-all',
-          'focus:border-[hsl(221,83%,53%)] focus:ring-2 focus:ring-[hsl(221,83%,53%)]/20',
+          'focus:border-[hsl(var(--primary))] focus:ring-2 focus:ring-[hsl(var(--primary))]/20',
           'disabled:cursor-not-allowed disabled:opacity-50',
           'dark:border-[hsl(217,33%,17%)] dark:bg-[hsl(217,33%,17%)] dark:text-white',
           error && 'border-red-400',
@@ -129,7 +129,7 @@ export function Textarea({ label, error, hint, className, id, ...props }: Textar
         id={id}
         className={cn(
           'flex min-h-[80px] w-full rounded-lg border border-[hsl(214,32%,91%)] bg-white px-3 py-2 text-sm text-[hsl(222,47%,11%)] placeholder:text-[hsl(215,16%,60%)] outline-none transition-all resize-y',
-          'focus:border-[hsl(221,83%,53%)] focus:ring-2 focus:ring-[hsl(221,83%,53%)]/20',
+          'focus:border-[hsl(var(--primary))] focus:ring-2 focus:ring-[hsl(var(--primary))]/20',
           'disabled:cursor-not-allowed disabled:opacity-50',
           'dark:border-[hsl(217,33%,17%)] dark:bg-[hsl(217,33%,17%)] dark:text-white',
           error && 'border-red-400',

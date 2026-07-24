@@ -68,6 +68,9 @@ export async function PUT(req: Request, { params }: Params) {
       if (data.items) {
         await tx.quoteItem.deleteMany({ where: { quoteId: id } })
       }
+      if (data.paymentMilestones) {
+        await tx.paymentMilestone.deleteMany({ where: { quoteId: id } })
+      }
 
       return tx.quote.update({
         where: { id },
@@ -85,8 +88,21 @@ export async function PUT(req: Request, { params }: Params) {
               })),
             },
           }),
+          ...(data.paymentMilestones && {
+            paymentMilestones: {
+              create: data.paymentMilestones.map((m) => ({
+                name: m.name,
+                percent: m.percent,
+                amount: m.amount,
+              })),
+            },
+          }),
         },
-        include: { customer: { select: { companyName: true } } },
+        include: { 
+          customer: { select: { companyName: true } },
+          items: true,
+          paymentMilestones: true,
+        },
       })
     })
 

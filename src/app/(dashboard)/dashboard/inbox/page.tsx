@@ -61,7 +61,7 @@ export default function InboxPage() {
     switch (channel) {
       case 'SMS': return <MessageSquare className="h-4 w-4 text-emerald-500" />
       case 'EMAIL': return <Mail className="h-4 w-4 text-sky-500" />
-      case 'FACEBOOK': return <MessageCircle className="h-4 w-4 text-blue-600" />
+      case 'FACEBOOK': return <MessageCircle className="h-4 w-4 text-primary" />
       default: return <MessageSquare className="h-4 w-4 text-gray-500" />
     }
   }
@@ -93,7 +93,7 @@ export default function InboxPage() {
                   onClick={() => setActiveContactId(conv.contactId)}
                   className={`p-4 border-b border-[hsl(214,32%,91%)] dark:border-[hsl(217,33%,17%)] cursor-pointer transition-colors ${
                     activeContactId === conv.contactId 
-                      ? 'bg-white dark:bg-[hsl(217,33%,17%)] border-l-4 border-l-[hsl(221,83%,53%)]' 
+                      ? 'bg-white dark:bg-[hsl(217,33%,17%)] border-l-4 border-l-[hsl(var(--primary))]' 
                       : 'hover:bg-white dark:hover:bg-[hsl(217,33%,17%)] border-l-4 border-l-transparent'
                   }`}
                 >
@@ -145,7 +145,7 @@ export default function InboxPage() {
                     <div key={msg.id} className={`flex flex-col max-w-[80%] ${isOutbound ? 'self-end items-end' : 'self-start items-start'}`}>
                       <div className={`p-3 rounded-2xl ${
                         isOutbound 
-                          ? 'bg-[hsl(221,83%,53%)] text-white rounded-br-none' 
+                          ? 'bg-[hsl(var(--primary))] text-white rounded-br-none' 
                           : 'bg-white dark:bg-[hsl(217,33%,17%)] text-[hsl(222,47%,11%)] dark:text-white border border-[hsl(214,32%,91%)] dark:border-white/5 rounded-bl-none'
                       }`}>
                         <p className="text-sm whitespace-pre-wrap">{msg.body}</p>

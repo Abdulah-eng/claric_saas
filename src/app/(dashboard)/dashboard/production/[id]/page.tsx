@@ -101,7 +101,7 @@ export default function ProductionJobDetailPage({ params }: { params: Promise<{ 
             <select 
               value={job.status} 
               onChange={(e) => updateJobStatus(e.target.value)}
-              className={`rounded-md border px-3 py-1.5 text-sm font-medium ${job.status === 'DONE' ? 'bg-blue-50 text-blue-700 border-blue-200' : 'bg-white border-[hsl(214,32%,91%)] dark:bg-[hsl(222,47%,11%)] dark:border-[hsl(217,33%,17%)] dark:text-white'}`}
+              className={`rounded-md border px-3 py-1.5 text-sm font-medium ${job.status === 'DONE' ? 'bg-primary/10 text-primary border-blue-200' : 'bg-white border-[hsl(214,32%,91%)] dark:bg-[hsl(222,47%,11%)] dark:border-[hsl(217,33%,17%)] dark:text-white'}`}
             >
               <option value="PENDING">Pending</option>
               <option value="IN_PROGRESS">In Progress</option>
@@ -144,7 +144,7 @@ export default function ProductionJobDetailPage({ params }: { params: Promise<{ 
                   <div className="flex items-center gap-3">
                     <button 
                       onClick={() => updateTask(task.id, task.status === 'DONE' ? 'PENDING' : 'DONE')}
-                      className={`h-5 w-5 rounded-full border flex items-center justify-center ${task.status === 'DONE' ? 'bg-blue-600 border-blue-600 text-white' : 'border-[hsl(215,16%,47%)] text-transparent'}`}
+                      className={`h-5 w-5 rounded-full border flex items-center justify-center ${task.status === 'DONE' ? 'bg-primary border-primary text-white' : 'border-[hsl(215,16%,47%)] text-transparent'}`}
                     >
                       <CheckCircle className="h-3 w-3" />
                     </button>

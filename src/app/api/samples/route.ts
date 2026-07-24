@@ -30,6 +30,7 @@ export async function POST(req: Request) {
         tenantId,
         ...restData,
         followUpDate: restData.followUpDate ? new Date(restData.followUpDate) : undefined,
+        deliveredAt: restData.deliveredAt ? new Date(restData.deliveredAt) : undefined,
         items: items.length > 0 ? {
           create: items.map(item => ({
             name: item.name,

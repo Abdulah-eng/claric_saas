@@ -44,7 +44,7 @@ export default function ReportsPage() {
       <PageHeader title="Reporting Dashboard" description="Key performance indicators and analytics." />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <StatCard title="Total Customers" value={kpis.totalCustomers} icon={Users} color="bg-blue-100 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400" />
+        <StatCard title="Total Customers" value={kpis.totalCustomers} icon={Users} color="bg-primary/10 text-primary dark:bg-primary/20 dark:text-blue-400" />
         <StatCard title="Total Orders" value={kpis.totalOrders} icon={ShoppingCart} color="bg-purple-100 text-purple-600 dark:bg-purple-500/20 dark:text-purple-400" />
         <StatCard title="Total Revenue" value={formatCurrency(kpis.totalRevenue)} icon={DollarSign} color="bg-emerald-100 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400" />
         <StatCard title="Active Jobs" value={productionStats.reduce((acc: number, curr: any) => acc + (curr.status !== 'DONE' && curr.status !== 'CANCELLED' ? curr.count : 0), 0)} icon={Activity} color="bg-orange-100 text-orange-600 dark:bg-orange-500/20 dark:text-orange-400" />

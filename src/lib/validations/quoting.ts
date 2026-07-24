@@ -9,6 +9,12 @@ export const quoteLineItemSchema = z.object({
   taxRate: z.number().min(0).default(0),
 })
 
+export const paymentMilestoneSchema = z.object({
+  name: z.string(),
+  percent: z.number().optional().nullable(),
+  amount: z.number(),
+})
+
 export const createQuoteSchema = z.object({
   customerId: z.string().min(1, 'Customer is required'),
   title: z.string().optional(),
@@ -18,6 +24,7 @@ export const createQuoteSchema = z.object({
   notes: z.string().optional(),
   terms: z.string().optional(),
   items: z.array(quoteLineItemSchema).min(1, 'At least one line item is required'),
+  paymentMilestones: z.array(paymentMilestoneSchema).optional(),
 })
 
 export const updateQuoteSchema = createQuoteSchema.partial().extend({

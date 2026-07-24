@@ -45,14 +45,15 @@ export async function getQuoteById(tenantId: string, id: string) {
   return prisma.quote.findFirst({
     where: { id, tenantId },
     include: {
-      customer: { select: { id: true, companyName: true, email: true, phone: true, billingAddress: true, billingCity: true, billingState: true, billingPostal: true, billingCountry: true } },
+      customer: { select: { id: true, companyName: true, email: true, phone: true, billingAddress: true, billingCity: true, billingState: true, billingPostal: true, billingCountry: true, contacts: { select: { firstName: true, lastName: true, isPrimary: true } } } },
       items: {
         include: {
           product: { select: { id: true, name: true, sku: true } },
         },
         orderBy: { createdAt: 'asc' }
       },
-      order: { select: { id: true, orderNumber: true, status: true, total: true } }
+      order: { select: { id: true, orderNumber: true, status: true, total: true } },
+      paymentMilestones: { orderBy: { id: 'asc' } }
     },
   })
 }

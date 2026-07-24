@@ -62,7 +62,7 @@ export default function InvoiceDetailPage({ params }: { params: Promise<{ id: st
 
   const statusColors: Record<string, string> = {
     DRAFT: 'bg-gray-100 text-gray-700 dark:bg-gray-500/20 dark:text-gray-400',
-    SENT: 'bg-blue-100 text-blue-700 dark:bg-blue-500/20 dark:text-blue-400',
+    SENT: 'bg-primary/10 text-primary dark:bg-primary/20 dark:text-blue-400',
     PARTIALLY_PAID: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-500/20 dark:text-yellow-400',
     PAID: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-400',
     OVERDUE: 'bg-red-100 text-red-700 dark:bg-red-500/20 dark:text-red-400',

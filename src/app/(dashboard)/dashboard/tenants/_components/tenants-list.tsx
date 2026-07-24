@@ -61,7 +61,7 @@ function TenantRow({ tenant, onEdit }: { tenant: TenantData, onEdit: (tenant: Te
       <td className="px-6 py-4">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[hsl(210,40%,96%)] dark:bg-[hsl(217,33%,17%)]">
-            <Building2 className="h-5 w-5 text-[hsl(221,83%,53%)]" />
+            <Building2 className="h-5 w-5 text-[hsl(var(--primary))]" />
           </div>
           <div>
             <div className="font-medium text-[hsl(222,47%,11%)] dark:text-white">
@@ -84,7 +84,7 @@ function TenantRow({ tenant, onEdit }: { tenant: TenantData, onEdit: (tenant: Te
         )}
       </td>
       <td className="px-6 py-4">
-        <span className="rounded-full bg-[hsl(221,83%,53%)]/10 px-2 py-1 text-xs font-semibold text-[hsl(221,83%,53%)]">
+        <span className="rounded-full bg-[hsl(var(--primary))]/10 px-2 py-1 text-xs font-semibold text-[hsl(var(--primary))]">
           {tenant.plan}
         </span>
       </td>
@@ -167,12 +167,12 @@ export function TenantsList({ initialData }: { initialData: TenantData[] }) {
             placeholder="Search companies..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-white py-2 pl-9 pr-4 text-sm outline-none focus:border-[hsl(221,83%,53%)] focus:ring-1 focus:ring-[hsl(221,83%,53%)] dark:border-[hsl(217,33%,17%)] dark:bg-[hsl(222,47%,11%)] dark:text-white"
+            className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-white py-2 pl-9 pr-4 text-sm outline-none focus:border-[hsl(var(--primary))] focus:ring-1 focus:ring-[hsl(var(--primary))] dark:border-[hsl(217,33%,17%)] dark:bg-[hsl(222,47%,11%)] dark:text-white"
           />
         </div>
         <button
           onClick={() => setShowModal(true)}
-          className="flex items-center justify-center gap-2 rounded-lg bg-[hsl(221,83%,53%)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[hsl(221,83%,48%)]"
+          className="flex items-center justify-center gap-2 rounded-lg bg-[hsl(var(--primary))] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[hsl(var(--primary))]"
         >
           <Plus className="h-4 w-4" />
           Add Company

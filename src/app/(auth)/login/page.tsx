@@ -68,7 +68,7 @@ function LoginForm() {
     <div className="animate-in">
       {/* Logo */}
       <div className="mb-8 flex flex-col items-center gap-3">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[hsl(221,83%,53%)] to-[hsl(262,83%,58%)] shadow-lg shadow-blue-500/30">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[hsl(var(--primary))] to-[hsl(262,83%,58%)] shadow-lg shadow-primary/30">
           <Zap className="h-6 w-6 text-white" />
         </div>
         <div className="text-center">
@@ -98,7 +98,7 @@ function LoginForm() {
               autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className={`w-full rounded-lg border bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-[hsl(215,20%,45%)] transition-all outline-none focus:border-[hsl(221,83%,53%)] focus:ring-2 focus:ring-[hsl(221,83%,53%)]/20 ${
+              className={`w-full rounded-lg border bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-[hsl(215,20%,45%)] transition-all outline-none focus:border-[hsl(var(--primary))] focus:ring-2 focus:ring-[hsl(var(--primary))]/20 ${
                 fieldErrors.email ? 'border-red-500/50' : 'border-white/10'
               }`}
               placeholder="you@company.com"
@@ -119,7 +119,7 @@ function LoginForm() {
               </label>
               <Link
                 href="/forgot-password"
-                className="text-xs text-[hsl(221,83%,70%)] hover:text-[hsl(221,83%,80%)] transition-colors"
+                className="text-xs text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))] transition-colors"
               >
                 Forgot password?
               </Link>
@@ -131,7 +131,7 @@ function LoginForm() {
                 autoComplete="current-password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className={`w-full rounded-lg border bg-white/5 px-4 py-2.5 pr-10 text-sm text-white placeholder:text-[hsl(215,20%,45%)] transition-all outline-none focus:border-[hsl(221,83%,53%)] focus:ring-2 focus:ring-[hsl(221,83%,53%)]/20 ${
+                className={`w-full rounded-lg border bg-white/5 px-4 py-2.5 pr-10 text-sm text-white placeholder:text-[hsl(215,20%,45%)] transition-all outline-none focus:border-[hsl(var(--primary))] focus:ring-2 focus:ring-[hsl(var(--primary))]/20 ${
                   fieldErrors.password ? 'border-red-500/50' : 'border-white/10'
                 }`}
                 placeholder="••••••••"
@@ -155,7 +155,7 @@ function LoginForm() {
             id="btn-sign-in"
             type="submit"
             disabled={isLoading}
-            className="w-full rounded-lg bg-gradient-to-r from-[hsl(221,83%,53%)] to-[hsl(262,83%,58%)] px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:shadow-blue-500/40 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none focus:ring-2 focus:ring-[hsl(221,83%,53%)] focus:ring-offset-2 focus:ring-offset-[hsl(222,47%,11%)]"
+            className="w-full rounded-lg bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(262,83%,58%)] px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:shadow-primary/40 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary))] focus:ring-offset-2 focus:ring-offset-[hsl(222,47%,11%)]"
           >
             {isLoading ? (
               <span className="flex items-center justify-center gap-2">

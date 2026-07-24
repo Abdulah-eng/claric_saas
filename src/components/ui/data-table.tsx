@@ -135,7 +135,7 @@ export function Pagination({ page, totalPages, total, perPage, onPageChange }: P
               className={cn(
                 'flex h-8 w-8 items-center justify-center rounded-lg border text-sm font-medium transition-all',
                 p === page
-                  ? 'border-[hsl(221,83%,53%)] bg-[hsl(221,83%,53%)] text-white'
+                  ? 'border-[hsl(var(--primary))] bg-[hsl(var(--primary))] text-white'
                   : 'border-[hsl(214,32%,91%)] text-[hsl(215,16%,47%)] hover:bg-[hsl(210,40%,96%)] dark:border-[hsl(217,33%,17%)] dark:hover:bg-[hsl(217,33%,17%)]'
               )}
             >
@@ -177,7 +177,7 @@ export function PageHeader({ title, description, actions, breadcrumbs }: PageHea
               <span key={i} className="flex items-center gap-1.5">
                 {i > 0 && <span>/</span>}
                 {b.href ? (
-                  <a href={b.href} className="hover:text-[hsl(221,83%,53%)] transition-colors">
+                  <a href={b.href} className="hover:text-[hsl(var(--primary))] transition-colors">
                     {b.label}
                   </a>
                 ) : (
@@ -235,7 +235,7 @@ type StatCardProps = {
   suffix?: string
 }
 
-export function StatCard({ label, value, icon, color = 'bg-blue-500', suffix }: StatCardProps) {
+export function StatCard({ label, value, icon, color = 'bg-primary', suffix }: StatCardProps) {
   return (
     <div className="rounded-xl border border-[hsl(214,32%,91%)] bg-white p-4 shadow-sm dark:border-[hsl(217,33%,17%)] dark:bg-[hsl(222,47%,11%)]">
       <div className="flex items-center justify-between">

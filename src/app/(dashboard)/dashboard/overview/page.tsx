@@ -7,7 +7,7 @@ import { PageHeader } from '@/components/ui/data-table'
 import { formatCurrency, formatDate } from '@/lib/utils'
 
 const COLUMNS = [
-  { id: 'quoting', label: 'Quoting', color: 'bg-blue-500', bg: 'bg-blue-50 dark:bg-blue-900/20' },
+  { id: 'quoting', label: 'Quoting', color: 'bg-primary', bg: 'bg-primary/10 dark:bg-blue-900/20' },
   { id: 'approved', label: 'Quote Approved', color: 'bg-emerald-500', bg: 'bg-emerald-50 dark:bg-emerald-900/20' },
   { id: 'job_pending', label: 'Job Pending', color: 'bg-amber-500', bg: 'bg-amber-50 dark:bg-amber-900/20' },
   { id: 'job_progress', label: 'Job In Progress', color: 'bg-purple-500', bg: 'bg-purple-50 dark:bg-purple-900/20' },
@@ -98,13 +98,13 @@ export default function OverviewPage() {
           <div className="flex rounded-lg border border-[hsl(214,32%,91%)] bg-white p-0.5 dark:border-[hsl(217,33%,17%)] dark:bg-[hsl(222,47%,11%)]">
             <button
               onClick={() => setView('kanban')}
-              className={`flex h-7 items-center gap-1.5 rounded-md px-2.5 text-xs font-medium transition-all ${view === 'kanban' ? 'bg-[hsl(221,83%,53%)] text-white shadow-sm' : 'text-[hsl(215,16%,47%)] hover:text-[hsl(222,47%,11%)] dark:hover:text-white'}`}
+              className={`flex h-7 items-center gap-1.5 rounded-md px-2.5 text-xs font-medium transition-all ${view === 'kanban' ? 'bg-[hsl(var(--primary))] text-white shadow-sm' : 'text-[hsl(215,16%,47%)] hover:text-[hsl(222,47%,11%)] dark:hover:text-white'}`}
             >
               <Columns className="h-3.5 w-3.5" /> Kanban
             </button>
             <button
               onClick={() => setView('list')}
-              className={`flex h-7 items-center gap-1.5 rounded-md px-2.5 text-xs font-medium transition-all ${view === 'list' ? 'bg-[hsl(221,83%,53%)] text-white shadow-sm' : 'text-[hsl(215,16%,47%)] hover:text-[hsl(222,47%,11%)] dark:hover:text-white'}`}
+              className={`flex h-7 items-center gap-1.5 rounded-md px-2.5 text-xs font-medium transition-all ${view === 'list' ? 'bg-[hsl(var(--primary))] text-white shadow-sm' : 'text-[hsl(215,16%,47%)] hover:text-[hsl(222,47%,11%)] dark:hover:text-white'}`}
             >
               <List className="h-3.5 w-3.5" /> List
             </button>
@@ -152,7 +152,7 @@ export default function OverviewPage() {
                     >
                       <div className="flex items-start justify-between mb-1">
                         <div className="flex items-center gap-1.5">
-                          {item.type === 'QUOTE' ? <FileText className="h-3.5 w-3.5 text-blue-500" /> : <Factory className="h-3.5 w-3.5 text-purple-500" />}
+                          {item.type === 'QUOTE' ? <FileText className="h-3.5 w-3.5 text-primary" /> : <Factory className="h-3.5 w-3.5 text-purple-500" />}
                           <p className="text-sm font-semibold text-[hsl(222,47%,11%)] dark:text-white line-clamp-1">
                             {item.title}
                           </p>
@@ -194,7 +194,7 @@ export default function OverviewPage() {
                 >
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2">
-                      {item.type === 'QUOTE' ? <FileText className="h-4 w-4 text-blue-500" /> : <Factory className="h-4 w-4 text-purple-500" />}
+                      {item.type === 'QUOTE' ? <FileText className="h-4 w-4 text-primary" /> : <Factory className="h-4 w-4 text-purple-500" />}
                       <span className="font-medium text-[hsl(222,47%,11%)] dark:text-white">{item.title}</span>
                     </div>
                   </td>

@@ -348,10 +348,11 @@ model User {
   // Relations
   sessions        Session[]
   auditLogs       AuditLog[]
-  assignedLeads   Lead[]           @relation("AssignedLeads")
-  createdQuotes   Quote[]          @relation("CreatedByUser")
-  productionTasks ProductionTask[] @relation("AssignedTasks")
-  notifications   Notification[]
+  assignedLeads     Lead[]           @relation("AssignedLeads")
+  createdQuotes     Quote[]          @relation("CreatedByUser")
+  productionTasks   ProductionTask[] @relation("AssignedTasks")
+  assignedFollowUps FollowUp[]       @relation("AssignedFollowUps")
+  notifications     Notification[]
   messages        Message[]        @relation("SentMessages")
   accounts        Account[]
 
@@ -451,49 +452,56 @@ model Customer {
   followUps    FollowUp[]
   samples      Sample[]
   priceLists   CustomerPriceList[]
+  activities   CustomerActivity[]
 
   @@index([tenantId])
   @@index([tenantId, email])
 }
 
 model Contact {
-  id         String   @id @default(cuid())
-  tenantId   String
-  customerId String
-  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
-  firstName  String
-  lastName   String
-  email      String?
-  phone      String?
-  title      String?
-  department String?
-  isPrimary  Boolean  @default(false)
-  notes      String?
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id                 String             @id @default(cuid())
+  tenantId           String
+  customerId         String
+  customer           Customer           @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  firstName          String
+  lastName           String
+  email              String?
+  phone              String?
+  title              String?
+  department         String?
+  isPrimary          Boolean            @default(false)
+  notes              String?
+  hasPortalAccess    Boolean            @default(false)
+  portalInviteSentAt DateTime?
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  activities         CustomerActivity[]
 
   @@index([customerId])
   @@index([tenantId])
 }
 
 model FollowUp {
-  id          String    @id @default(cuid())
-  tenantId    String
-  customerId  String?
-  customer    Customer? @relation(fields: [customerId], references: [id], onDelete: Cascade)
-  leadId      String?
-  lead        Lead?     @relation(fields: [leadId], references: [id], onDelete: Cascade)
-  title       String
-  notes       String?
-  dueDate     DateTime
-  isDone      Boolean   @default(false)
-  completedAt DateTime?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  id           String    @id @default(cuid())
+  tenantId     String
+  customerId   String?
+  customer     Customer? @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  leadId       String?
+  lead         Lead?     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  title        String
+  notes        String?
+  dueDate      DateTime
+  isDone       Boolean   @default(false)
+  completedAt  DateTime?
+  assignedToId String?
+  assignedTo   User?     @relation("AssignedFollowUps", fields: [assignedToId], references: [id])
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
 
   @@index([tenantId])
   @@index([customerId])
   @@index([leadId])
+  @@index([assignedToId])
 }
 
 // ============================================================
@@ -561,6 +569,8 @@ model Sample {
   lead               Lead?        @relation(fields: [leadId], references: [id])
   customerId         String?
   customer           Customer?    @relation(fields: [customerId], references: [id])
+  quoteId            String?
+  quote              Quote?       @relation(fields: [quoteId], references: [id])
   productId          String?
   product            Product?     @relation(fields: [productId], references: [id])
   description        String
@@ -581,6 +591,7 @@ model Sample {
   @@index([tenantId])
   @@index([leadId])
   @@index([customerId])
+  @@index([quoteId])
 }
 
 model SampleItem {
@@ -861,6 +872,7 @@ model Quote {
   paymentMilestones PaymentMilestone[]
   order             Order?
   attachments       Attachment[]
+  samples           Sample[]
 
   @@unique([tenantId, quoteNumber])
   @@index([tenantId])
@@ -1425,4 +1437,22 @@ model QuickBooksSyncLog {
   createdAt    DateTime             @default(now())
 
   @@index([connectionId])
+}
+
+model CustomerActivity {
+  id         String   @id @default(cuid())
+  tenantId   String
+  customerId String
+  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  contactId  String?
+  contact    Contact? @relation(fields: [contactId], references: [id], onDelete: SetNull)
+  source     String   // e.g. "Phone call", "Email", "Text message", "Meeting", "Note"
+  subject    String
+  notes      String?  @db.Text
+  occurredAt DateTime @default(now())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([customerId])
+  @@index([tenantId])
 }

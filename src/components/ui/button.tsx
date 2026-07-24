@@ -6,7 +6,7 @@ type Size = 'sm' | 'md' | 'lg'
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    'bg-gradient-to-r from-[hsl(221,83%,53%)] to-[hsl(262,83%,58%)] text-white shadow-sm hover:opacity-90 hover:shadow-md focus-visible:ring-[hsl(221,83%,53%)]',
+    'bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] shadow-sm hover:opacity-90 hover:shadow-md focus-visible:ring-[hsl(var(--ring))]',
   secondary:
     'bg-[hsl(210,40%,96%)] text-[hsl(222,47%,11%)] hover:bg-[hsl(210,40%,92%)] dark:bg-[hsl(217,33%,17%)] dark:text-white dark:hover:bg-[hsl(217,33%,22%)]',
   outline:

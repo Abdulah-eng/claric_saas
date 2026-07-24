@@ -104,9 +104,11 @@ export const createSampleSchema = z.object({
   customerId: z.string().optional().nullable(),
   productId: z.string().optional().nullable(),
   description: z.string().min(1, 'Description is required'),
+  quoteId: z.string().optional().nullable(),
   carrier: z.string().optional().nullable(),
   trackingNumber: z.string().optional().nullable(),
   followUpDate: z.string().optional().nullable(),
+  deliveredAt: z.string().optional().nullable(),
   notes: z.string().optional().nullable(),
   imageUrls: z.array(z.string()).default([]),
   totalValue: z.coerce.number().min(0).default(0),
@@ -129,4 +131,5 @@ export const createFollowUpSchema = z.object({
   title: z.string().min(1, 'Title is required'),
   notes: z.string().optional(),
   dueDate: z.string(),
+  assignedToId: z.string().optional(),
 })

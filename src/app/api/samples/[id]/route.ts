@@ -19,7 +19,24 @@ export async function GET(_req: Request, { params }: Params) {
       },
     })
     if (!sample) return apiNotFound('Sample')
-    return apiSuccess(sample)
+
+    // Load quote separately to bypass cached Prisma schema validation issue in dev
+    let quote = null
+    if (sample.customerId) {
+      quote = await prisma.quote.findFirst({
+        where: {
+          tenantId,
+          customerId: sample.customerId
+        },
+        select: { id: true, quoteNumber: true },
+        orderBy: { createdAt: 'desc' }
+      })
+    }
+
+    return apiSuccess({
+      ...sample,
+      quote
+    })
   } catch (e) {
     return apiServerError(e)
   }
@@ -70,7 +87,23 @@ export async function PUT(req: Request, { params }: Params) {
       },
     })
 
-    return apiSuccess(sample)
+    // Load quote separately
+    let quote = null
+    if (sample.customerId) {
+      quote = await prisma.quote.findFirst({
+        where: {
+          tenantId,
+          customerId: sample.customerId
+        },
+        select: { id: true, quoteNumber: true },
+        orderBy: { createdAt: 'desc' }
+      })
+    }
+
+    return apiSuccess({
+      ...sample,
+      quote
+    })
   } catch (e) {
     console.error("PUT Sample Error:", e)
     return apiServerError(e)

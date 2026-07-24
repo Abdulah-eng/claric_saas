@@ -72,7 +72,7 @@ export function CreateTenantModal({ onClose }: { onClose: () => void }) {
             
             <button
               onClick={onClose}
-              className="w-full rounded-lg bg-[hsl(221,83%,53%)] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[hsl(221,83%,48%)]"
+              className="w-full rounded-lg bg-[hsl(var(--primary))] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[hsl(var(--primary))]"
             >
               Done
             </button>
@@ -109,7 +109,7 @@ export function CreateTenantModal({ onClose }: { onClose: () => void }) {
                 <input
                   name="name"
                   required
-                  className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent py-2.5 pl-10 pr-4 text-sm text-[hsl(222,47%,11%)] outline-none focus:border-[hsl(221,83%,53%)] focus:ring-1 focus:ring-[hsl(221,83%,53%)] dark:border-[hsl(217,33%,17%)] dark:text-white"
+                  className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent py-2.5 pl-10 pr-4 text-sm text-[hsl(222,47%,11%)] outline-none focus:border-[hsl(var(--primary))] focus:ring-1 focus:ring-[hsl(var(--primary))] dark:border-[hsl(217,33%,17%)] dark:text-white"
                   placeholder="Acme Corp"
                 />
               </div>
@@ -124,7 +124,7 @@ export function CreateTenantModal({ onClose }: { onClose: () => void }) {
                 <input
                   name="slug"
                   required
-                  className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent py-2.5 pl-10 pr-4 text-sm text-[hsl(222,47%,11%)] outline-none focus:border-[hsl(221,83%,53%)] focus:ring-1 focus:ring-[hsl(221,83%,53%)] dark:border-[hsl(217,33%,17%)] dark:text-white"
+                  className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent py-2.5 pl-10 pr-4 text-sm text-[hsl(222,47%,11%)] outline-none focus:border-[hsl(var(--primary))] focus:ring-1 focus:ring-[hsl(var(--primary))] dark:border-[hsl(217,33%,17%)] dark:text-white"
                   placeholder="acme-corp"
                 />
               </div>
@@ -141,7 +141,7 @@ export function CreateTenantModal({ onClose }: { onClose: () => void }) {
                 <input
                   name="adminName"
                   required
-                  className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent py-2.5 pl-10 pr-4 text-sm text-[hsl(222,47%,11%)] outline-none focus:border-[hsl(221,83%,53%)] focus:ring-1 focus:ring-[hsl(221,83%,53%)] dark:border-[hsl(217,33%,17%)] dark:text-white"
+                  className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent py-2.5 pl-10 pr-4 text-sm text-[hsl(222,47%,11%)] outline-none focus:border-[hsl(var(--primary))] focus:ring-1 focus:ring-[hsl(var(--primary))] dark:border-[hsl(217,33%,17%)] dark:text-white"
                   placeholder="John Doe"
                 />
               </div>
@@ -157,7 +157,7 @@ export function CreateTenantModal({ onClose }: { onClose: () => void }) {
                   name="adminEmail"
                   type="email"
                   required
-                  className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent py-2.5 pl-10 pr-4 text-sm text-[hsl(222,47%,11%)] outline-none focus:border-[hsl(221,83%,53%)] focus:ring-1 focus:ring-[hsl(221,83%,53%)] dark:border-[hsl(217,33%,17%)] dark:text-white"
+                  className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent py-2.5 pl-10 pr-4 text-sm text-[hsl(222,47%,11%)] outline-none focus:border-[hsl(var(--primary))] focus:ring-1 focus:ring-[hsl(var(--primary))] dark:border-[hsl(217,33%,17%)] dark:text-white"
                   placeholder="john@acme.com"
                 />
               </div>
@@ -172,7 +172,7 @@ export function CreateTenantModal({ onClose }: { onClose: () => void }) {
                 <input
                   name="adminPassword"
                   type="password"
-                  className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent py-2.5 pl-10 pr-4 text-sm text-[hsl(222,47%,11%)] outline-none focus:border-[hsl(221,83%,53%)] focus:ring-1 focus:ring-[hsl(221,83%,53%)] dark:border-[hsl(217,33%,17%)] dark:text-white"
+                  className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent py-2.5 pl-10 pr-4 text-sm text-[hsl(222,47%,11%)] outline-none focus:border-[hsl(var(--primary))] focus:ring-1 focus:ring-[hsl(var(--primary))] dark:border-[hsl(217,33%,17%)] dark:text-white"
                   placeholder="Leave blank to auto-generate"
                 />
               </div>
@@ -191,7 +191,7 @@ export function CreateTenantModal({ onClose }: { onClose: () => void }) {
             <button
               type="submit"
               disabled={loading}
-              className="flex items-center gap-2 rounded-lg bg-[hsl(221,83%,53%)] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[hsl(221,83%,48%)] disabled:opacity-70"
+              className="flex items-center gap-2 rounded-lg bg-[hsl(var(--primary))] px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[hsl(var(--primary))] disabled:opacity-70"
             >
               {loading && <Loader2 className="h-4 w-4 animate-spin" />}
               Create Company

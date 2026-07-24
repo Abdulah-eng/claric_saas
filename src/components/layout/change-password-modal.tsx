@@ -51,7 +51,7 @@ export function ChangePasswordModal({ open, onClose }: { open: boolean, onClose:
     <Modal open={open} onClose={onClose}>
       <div className="p-6">
         <div className="mb-6 flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[hsl(221,83%,53%)]/10 text-[hsl(221,83%,53%)]">
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[hsl(var(--primary))]/10 text-[hsl(var(--primary))]">
             <KeyRound className="h-5 w-5" />
           </div>
           <div>
@@ -74,24 +74,24 @@ export function ChangePasswordModal({ open, onClose }: { open: boolean, onClose:
             
             <div>
               <label className="mb-1.5 block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white">Current Password</label>
-              <input type="password" name="currentPassword" required className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent px-3 py-2 text-sm outline-none focus:border-[hsl(221,83%,53%)] dark:border-[hsl(217,33%,17%)] dark:text-white" />
+              <input type="password" name="currentPassword" required className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent px-3 py-2 text-sm outline-none focus:border-[hsl(var(--primary))] dark:border-[hsl(217,33%,17%)] dark:text-white" />
             </div>
 
             <div>
               <label className="mb-1.5 block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white">New Password</label>
-              <input type="password" name="newPassword" required minLength={8} className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent px-3 py-2 text-sm outline-none focus:border-[hsl(221,83%,53%)] dark:border-[hsl(217,33%,17%)] dark:text-white" />
+              <input type="password" name="newPassword" required minLength={8} className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent px-3 py-2 text-sm outline-none focus:border-[hsl(var(--primary))] dark:border-[hsl(217,33%,17%)] dark:text-white" />
             </div>
 
             <div>
               <label className="mb-1.5 block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white">Confirm New Password</label>
-              <input type="password" name="confirmPassword" required minLength={8} className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent px-3 py-2 text-sm outline-none focus:border-[hsl(221,83%,53%)] dark:border-[hsl(217,33%,17%)] dark:text-white" />
+              <input type="password" name="confirmPassword" required minLength={8} className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-transparent px-3 py-2 text-sm outline-none focus:border-[hsl(var(--primary))] dark:border-[hsl(217,33%,17%)] dark:text-white" />
             </div>
 
             <div className="mt-6 flex justify-end gap-3">
               <button type="button" onClick={onClose} className="rounded-lg px-4 py-2 text-sm font-medium text-[hsl(215,16%,47%)] hover:bg-[hsl(214,32%,91%)] dark:hover:bg-[hsl(217,33%,17%)]">
                 Cancel
               </button>
-              <button type="submit" disabled={loading} className="flex items-center gap-2 rounded-lg bg-[hsl(221,83%,53%)] px-4 py-2 text-sm font-medium text-white hover:bg-[hsl(221,83%,48%)] disabled:opacity-70">
+              <button type="submit" disabled={loading} className="flex items-center gap-2 rounded-lg bg-[hsl(var(--primary))] px-4 py-2 text-sm font-medium text-white hover:bg-[hsl(var(--primary))] disabled:opacity-70">
                 {loading && <Loader2 className="h-4 w-4 animate-spin" />}
                 Change Password
               </button>

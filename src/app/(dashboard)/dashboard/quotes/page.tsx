@@ -45,8 +45,8 @@ export default function QuotesPage() {
       header: 'Quote',
       render: (row: Quote) => (
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-500/10">
-            <FileText className="h-5 w-5 text-blue-500" />
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 dark:bg-primary/10">
+            <FileText className="h-5 w-5 text-primary" />
           </div>
           <div>
             <p className="font-medium text-[hsl(222,47%,11%)] dark:text-white">{row.quoteNumber}</p>
@@ -94,7 +94,7 @@ export default function QuotesPage() {
         <div className="flex items-center justify-end gap-2" onClick={(e) => e.stopPropagation()}>
           <button 
             onClick={() => window.open(`/api/quotes/${row.id}/pdf`, '_blank')}
-            className="flex h-8 w-8 items-center justify-center rounded-lg text-[hsl(215,16%,47%)] hover:bg-[hsl(210,40%,96%)] hover:text-blue-500 transition-colors"
+            className="flex h-8 w-8 items-center justify-center rounded-lg text-[hsl(215,16%,47%)] hover:bg-[hsl(210,40%,96%)] hover:text-primary transition-colors"
             title="Download PDF"
           >
             <Download className="h-4 w-4" />
@@ -125,7 +125,7 @@ export default function QuotesPage() {
             placeholder="Search quotes..."
             value={search}
             onChange={(e) => { setSearch(e.target.value); setPage(1) }}
-            className="h-9 w-full rounded-lg border border-[hsl(214,32%,91%)] bg-white pl-9 pr-3 text-sm text-[hsl(222,47%,11%)] outline-none focus:border-[hsl(221,83%,53%)] focus:ring-2 dark:border-[hsl(217,33%,17%)] dark:bg-[hsl(222,47%,11%)] dark:text-white"
+            className="h-9 w-full rounded-lg border border-[hsl(214,32%,91%)] bg-white pl-9 pr-3 text-sm text-[hsl(222,47%,11%)] outline-none focus:border-[hsl(var(--primary))] focus:ring-2 dark:border-[hsl(217,33%,17%)] dark:bg-[hsl(222,47%,11%)] dark:text-white"
           />
         </div>
       </div>

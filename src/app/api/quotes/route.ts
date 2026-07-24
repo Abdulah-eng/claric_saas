@@ -76,9 +76,19 @@ export async function POST(req: Request) {
             total: li.unitPrice * li.quantity,
           })),
         },
+        ...(data.paymentMilestones && {
+          paymentMilestones: {
+            create: data.paymentMilestones.map((m) => ({
+              name: m.name,
+              percent: m.percent,
+              amount: m.amount,
+            })),
+          },
+        }),
       },
       include: {
         customer: { select: { companyName: true } },
+        paymentMilestones: true,
       },
     })
 

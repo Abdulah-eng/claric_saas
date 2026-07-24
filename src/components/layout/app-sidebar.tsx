@@ -44,9 +44,9 @@ const NAV_SECTIONS: Array<{ title: string; items: NavItem[] }> = [
     title: 'CRM',
     items: [
       { label: 'Inbox', href: '/dashboard/inbox', icon: MessageSquare, roles: ['COMPANY_ADMIN', 'SALES_REP', 'DESIGNER'] },
-      { label: 'Customers', href: '/dashboard/customers', icon: Users, roles: ['COMPANY_ADMIN', 'SALES_REP'] },
+      { label: 'Clients', href: '/dashboard/customers', icon: Users, roles: ['COMPANY_ADMIN', 'SALES_REP'] },
       { label: 'Leads', href: '/dashboard/leads', icon: UserSearch, roles: ['COMPANY_ADMIN', 'SALES_REP'] },
-      { label: 'Samples', href: '/dashboard/samples', icon: Package, roles: ['COMPANY_ADMIN', 'SALES_REP'] },
+      { label: 'Sample Boxes', href: '/dashboard/samples', icon: Package, roles: ['COMPANY_ADMIN', 'SALES_REP'] },
     ],
   },
   {
@@ -117,15 +117,15 @@ export function AppSidebar({ user }: Props) {
 
   return (
     <aside
-      className="flex h-screen w-[260px] shrink-0 flex-col border-r border-[hsl(215,28%,17%)] bg-[hsl(222,47%,11%)]"
+      className="flex h-screen w-[260px] shrink-0 flex-col border-r border-[hsl(var(--sidebar-border))] bg-[hsl(var(--sidebar-bg))]"
       style={{ width: 'var(--sidebar-width)' }}
     >
       {/* Logo */}
-      <div className="flex h-16 items-center gap-3 border-b border-[hsl(215,28%,17%)] px-5">
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[hsl(221,83%,53%)] to-[hsl(262,83%,58%)]">
+      <div className="flex h-16 items-center gap-3 border-b border-[hsl(var(--sidebar-border))] px-5">
+        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-600">
           <Zap className="h-4 w-4 text-white" />
         </div>
-        <span className="text-[15px] font-bold tracking-tight text-white">Claric</span>
+        <span className="text-[15px] font-bold tracking-tight text-[hsl(var(--foreground))]">CRM</span>
       </div>
 
       {/* Nav */}
@@ -155,19 +155,19 @@ export function AppSidebar({ user }: Props) {
                           className={cn(
                             'group flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-all',
                             isActive
-                              ? 'bg-[hsl(221,83%,53%)] text-white shadow-md shadow-blue-500/20'
-                              : 'text-[hsl(215,20%,65%)] hover:bg-[hsl(215,28%,17%)] hover:text-white'
+                              ? 'bg-[hsl(var(--sidebar-active-bg))] text-[hsl(var(--sidebar-active-fg))] shadow-sm'
+                              : 'text-[hsl(var(--sidebar-fg))] hover:bg-[hsl(var(--sidebar-hover-bg))] hover:text-[hsl(var(--sidebar-active-fg))]'
                           )}
                         >
                           <item.icon
                             className={cn(
                               'h-4 w-4 shrink-0 transition-transform group-hover:scale-110',
-                              isActive ? 'text-white' : 'text-[hsl(215,20%,50%)]'
+                              isActive ? 'text-[hsl(var(--sidebar-active-fg))]' : 'text-[hsl(var(--sidebar-fg))]'
                             )}
                           />
                           <span className="flex-1 truncate">{item.label}</span>
                           {item.badge && (
-                            <span className="rounded-full bg-[hsl(221,83%,53%)]/20 px-1.5 py-0.5 text-[10px] font-semibold text-[hsl(221,83%,70%)]">
+                            <span className="rounded-full bg-orange-100 px-1.5 py-0.5 text-[10px] font-semibold text-orange-600">
                               {item.badge}
                             </span>
                           )}
@@ -183,13 +183,13 @@ export function AppSidebar({ user }: Props) {
       </nav>
 
       {/* User footer */}
-      <div className="border-t border-[hsl(215,28%,17%)] p-3">
+      <div className="border-t border-[hsl(var(--sidebar-border))] p-3">
         <div className="flex items-center gap-3 rounded-lg px-2 py-2">
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[hsl(215,28%,17%)] bg-[hsl(222,47%,11%)] text-xs font-medium text-white">
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-[hsl(var(--sidebar-border))] bg-[hsl(var(--sidebar-hover-bg))] text-xs font-semibold text-[hsl(var(--sidebar-fg))]">
             {user?.name?.slice(0, 2).toUpperCase() ?? 'U'}
           </div>
           <div className="flex-1 overflow-hidden">
-            <p className="truncate text-sm font-medium text-white">{user?.name || 'Unknown User'}</p>
+            <p className="truncate text-sm font-medium text-[hsl(var(--sidebar-fg))] dark:text-white">{user?.name || 'Unknown User'}</p>
             <p className="truncate text-xs text-[hsl(215,16%,47%)]">{user?.email || 'No Email'}</p>
           </div>
         </div>

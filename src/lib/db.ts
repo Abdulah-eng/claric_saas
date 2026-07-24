@@ -2,6 +2,14 @@ import { PrismaClient } from '@prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { Pool } from 'pg'
 
+// Force clear global prisma client to pick up schema changes
+if (globalThis && (globalThis as any).prisma) {
+  try {
+    (globalThis as any).prisma.$disconnect()
+  } catch (e) {}
+  delete (globalThis as any).prisma
+}
+
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined
 }

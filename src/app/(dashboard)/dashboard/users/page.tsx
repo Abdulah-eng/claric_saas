@@ -61,7 +61,7 @@ export default function UsersPage() {
       header: 'Name',
       accessor: (row: any) => (
         <div className="flex items-center gap-3">
-          <div className="h-8 w-8 rounded-full bg-blue-100 text-blue-600 dark:bg-blue-500/20 dark:text-blue-400 flex items-center justify-center font-bold text-xs">
+          <div className="h-8 w-8 rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-blue-400 flex items-center justify-center font-bold text-xs">
             {row.firstName.charAt(0)}{row.lastName.charAt(0)}
           </div>
           <span className="font-semibold text-[hsl(222,47%,11%)] dark:text-white">

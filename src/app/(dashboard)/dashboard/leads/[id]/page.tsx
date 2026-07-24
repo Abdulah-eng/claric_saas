@@ -119,13 +119,13 @@ export default function LeadDetailsPage({ params }: { params: Promise<{ id: stri
               className={`
                 whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium transition-colors
                 ${activeTab === tab.key
-                  ? 'border-blue-500 text-blue-600 dark:border-blue-400 dark:text-blue-400'
+                  ? 'border-primary text-primary dark:border-blue-400 dark:text-blue-400'
                   : 'border-transparent text-[hsl(215,16%,47%)] hover:border-[hsl(214,32%,91%)] hover:text-[hsl(222,47%,11%)] dark:hover:border-white/10 dark:hover:text-white'}
               `}
             >
               {tab.label}
               {tab.count !== null && (
-                <span className={`ml-2 rounded-full px-2 py-0.5 text-xs ${activeTab === tab.key ? 'bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400' : 'bg-[hsl(210,40%,96%)] text-[hsl(215,16%,47%)] dark:bg-white/5 dark:text-white/60'}`}>
+                <span className={`ml-2 rounded-full px-2 py-0.5 text-xs ${activeTab === tab.key ? 'bg-primary/10 text-primary dark:bg-blue-900/30 dark:text-blue-400' : 'bg-[hsl(210,40%,96%)] text-[hsl(215,16%,47%)] dark:bg-white/5 dark:text-white/60'}`}>
                   {tab.count}
                 </span>
               )}
@@ -151,7 +151,7 @@ export default function LeadDetailsPage({ params }: { params: Promise<{ id: stri
                   </div>
                   <div>
                     <p className="text-xs text-[hsl(215,16%,47%)] mb-1">Estimated Value</p>
-                    <p className="text-sm font-medium text-blue-600 dark:text-blue-400">{lead.estimatedValue ? formatCurrency(lead.estimatedValue) : '—'}</p>
+                    <p className="text-sm font-medium text-primary dark:text-blue-400">{lead.estimatedValue ? formatCurrency(lead.estimatedValue) : '—'}</p>
                   </div>
                   <div>
                     <p className="text-xs text-[hsl(215,16%,47%)] mb-1">Source</p>

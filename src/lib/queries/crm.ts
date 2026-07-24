@@ -44,6 +44,14 @@ export async function listCustomers(
         tags: true,
         isActive: true,
         createdAt: true,
+        contacts: {
+          select: {
+            id: true,
+            firstName: true,
+            lastName: true,
+            isPrimary: true,
+          },
+        },
         _count: {
           select: {
             quotes: true,
@@ -85,8 +93,22 @@ export async function getCustomerById(tenantId: string, id: string) {
         select: { id: true, invoiceNumber: true, status: true, total: true, amountDue: true, createdAt: true },
       },
       followUps: {
-        where: { isDone: false },
         orderBy: { dueDate: 'asc' },
+        include: {
+          assignedTo: { select: { id: true, name: true } }
+        }
+      },
+      samples: {
+        orderBy: { createdAt: 'desc' },
+        include: {
+          product: { select: { id: true, name: true, sku: true } }
+        }
+      },
+      activities: {
+        orderBy: { occurredAt: 'desc' },
+        include: {
+          contact: { select: { id: true, firstName: true, lastName: true } }
+        }
       },
       _count: {
         select: {
@@ -185,12 +207,55 @@ export async function listSamples(
       orderBy: { createdAt: 'desc' },
       include: {
         lead: { select: { id: true, companyName: true } },
-        customer: { select: { id: true, companyName: true } },
+        customer: {
+          select: {
+            id: true,
+            companyName: true,
+            contacts: {
+              where: { isPrimary: true },
+              select: { firstName: true, lastName: true }
+            }
+          }
+        },
         product: { select: { id: true, name: true, sku: true } },
+        items: {
+          include: {
+            product: { select: { name: true } }
+          }
+        }
       },
     }),
     prisma.sample.count({ where }),
   ])
 
-  return { samples, total }
+  // Fetch quotes separately to map them in memory, bypassing cached Prisma relation issues
+  const customerIds = samples.map(s => s.customerId).filter(Boolean) as string[]
+  
+  const quotes = await prisma.quote.findMany({
+    where: {
+      tenantId,
+      customerId: { in: customerIds }
+    },
+    select: {
+      id: true,
+      quoteNumber: true,
+      customerId: true,
+      createdAt: true
+    },
+    orderBy: { createdAt: 'desc' }
+  })
+
+  // Map quotes to samples
+  const samplesWithQuotes = samples.map((sample: any) => {
+    const matchedQuote = quotes.find(q => 
+      sample.customerId && q.customerId === sample.customerId
+    )
+    return {
+      ...sample,
+      quote: matchedQuote ? { id: matchedQuote.id, quoteNumber: matchedQuote.quoteNumber } : null,
+      quoteId: matchedQuote ? matchedQuote.id : null
+    }
+  })
+
+  return { samples: samplesWithQuotes, total }
 }

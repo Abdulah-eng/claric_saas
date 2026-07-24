@@ -16,6 +16,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
     if (body.title !== undefined) dataToUpdate.title = body.title
     if (body.notes !== undefined) dataToUpdate.notes = body.notes
     if (body.dueDate !== undefined) dataToUpdate.dueDate = new Date(body.dueDate)
+    if (body.assignedToId !== undefined) dataToUpdate.assignedToId = body.assignedToId || null
     if (body.isDone !== undefined) {
       dataToUpdate.isDone = body.isDone
       dataToUpdate.completedAt = body.isDone ? new Date() : null

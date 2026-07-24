@@ -77,7 +77,7 @@ export default function OrderDetailPage({ params }: { params: Promise<{ id: stri
         <div>
           <h1 className="text-2xl font-bold text-[hsl(222,47%,11%)] dark:text-white flex items-center gap-3">
             {order.orderNumber}
-            <span className="text-sm px-2.5 py-1 bg-blue-100 text-blue-700 rounded-full dark:bg-blue-500/20 dark:text-blue-400 font-medium">
+            <span className="text-sm px-2.5 py-1 bg-primary/10 text-primary rounded-full dark:bg-primary/20 dark:text-blue-400 font-medium">
               {order.status.replace('_', ' ')}
             </span>
           </h1>
@@ -99,7 +99,7 @@ export default function OrderDetailPage({ params }: { params: Promise<{ id: stri
             const Icon = step.icon
             return (
               <div key={step.value} className="relative z-10 flex flex-col items-center gap-2 group cursor-pointer" onClick={() => handleStatusChange(step.value)}>
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center border-4 transition-colors ${isCompleted ? 'bg-blue-600 border-white dark:border-[hsl(222,47%,11%)] text-white' : 'bg-[hsl(210,40%,98%)] border-[hsl(214,32%,91%)] dark:bg-[hsl(217,33%,17%)] dark:border-[hsl(217,33%,17%)] text-[hsl(215,16%,47%)]'} ${isCurrent ? 'ring-2 ring-blue-600 ring-offset-2 dark:ring-offset-[hsl(222,47%,11%)]' : ''}`}>
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center border-4 transition-colors ${isCompleted ? 'bg-primary border-white dark:border-[hsl(222,47%,11%)] text-white' : 'bg-[hsl(210,40%,98%)] border-[hsl(214,32%,91%)] dark:bg-[hsl(217,33%,17%)] dark:border-[hsl(217,33%,17%)] text-[hsl(215,16%,47%)]'} ${isCurrent ? 'ring-2 ring-primary ring-offset-2 dark:ring-offset-[hsl(222,47%,11%)]' : ''}`}>
                   <Icon className="h-4 w-4" />
                 </div>
                 <span className={`text-xs font-semibold ${isCompleted ? 'text-[hsl(222,47%,11%)] dark:text-white' : 'text-[hsl(215,16%,47%)]'}`}>
@@ -198,7 +198,7 @@ export default function OrderDetailPage({ params }: { params: Promise<{ id: stri
               )}
               <div className="flex justify-between pt-2">
                 <span className="font-bold text-base text-[hsl(222,47%,11%)] dark:text-white">Total</span>
-                <span className="font-bold text-lg text-blue-600 dark:text-blue-400">{formatCurrency(order.total)}</span>
+                <span className="font-bold text-lg text-primary dark:text-blue-400">{formatCurrency(order.total)}</span>
               </div>
             </div>
           </div>

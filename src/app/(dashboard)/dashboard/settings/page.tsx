@@ -93,7 +93,7 @@ export default function SettingsPage() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${isActive ? 'bg-blue-600 text-white shadow-sm' : 'text-[hsl(215,16%,47%)] hover:bg-[hsl(214,32%,91%)] hover:text-[hsl(222,47%,11%)] dark:hover:bg-[hsl(217,33%,17%)] dark:hover:text-white'}`}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${isActive ? 'bg-primary text-white shadow-sm' : 'text-[hsl(215,16%,47%)] hover:bg-[hsl(214,32%,91%)] hover:text-[hsl(222,47%,11%)] dark:hover:bg-[hsl(217,33%,17%)] dark:hover:text-white'}`}
               >
                 <Icon className="h-4 w-4" />
                 {tab.label}
@@ -112,23 +112,23 @@ export default function SettingsPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">Company Name</label>
-                    <input type="text" value={data.company?.name || ''} onChange={(e) => handleChange('company', 'name', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                    <input type="text" value={data.company?.name || ''} onChange={(e) => handleChange('company', 'name', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">Legal Name</label>
-                    <input type="text" value={data.company?.legalName || ''} onChange={(e) => handleChange('company', 'legalName', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                    <input type="text" value={data.company?.legalName || ''} onChange={(e) => handleChange('company', 'legalName', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">Support Email</label>
-                    <input type="email" value={data.company?.email || ''} onChange={(e) => handleChange('company', 'email', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                    <input type="email" value={data.company?.email || ''} onChange={(e) => handleChange('company', 'email', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">Phone</label>
-                    <input type="text" value={data.company?.phone || ''} onChange={(e) => handleChange('company', 'phone', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                    <input type="text" value={data.company?.phone || ''} onChange={(e) => handleChange('company', 'phone', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                   </div>
                   <div className="md:col-span-2">
                     <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">Address</label>
-                    <input type="text" value={data.company?.address || ''} onChange={(e) => handleChange('company', 'address', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                    <input type="text" value={data.company?.address || ''} onChange={(e) => handleChange('company', 'address', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                   </div>
                 </div>
               </div>
@@ -142,16 +142,16 @@ export default function SettingsPage() {
                     <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">Primary Color (Hex)</label>
                     <div className="flex gap-2">
                       <input type="color" value={data.whiteLabel?.primaryColor || '#2563EB'} onChange={(e) => handleChange('whiteLabel', 'primaryColor', e.target.value)} className="h-10 w-10 rounded border-0 p-0" />
-                      <input type="text" value={data.whiteLabel?.primaryColor || '#2563EB'} onChange={(e) => handleChange('whiteLabel', 'primaryColor', e.target.value)} className="flex-1 rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                      <input type="text" value={data.whiteLabel?.primaryColor || '#2563EB'} onChange={(e) => handleChange('whiteLabel', 'primaryColor', e.target.value)} className="flex-1 rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                     </div>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">Portal Title</label>
-                    <input type="text" value={data.whiteLabel?.portalTitle || ''} onChange={(e) => handleChange('whiteLabel', 'portalTitle', e.target.value)} placeholder="e.g. Acme Customer Portal" className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                    <input type="text" value={data.whiteLabel?.portalTitle || ''} onChange={(e) => handleChange('whiteLabel', 'portalTitle', e.target.value)} placeholder="e.g. Acme Customer Portal" className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                   </div>
                   <div className="md:col-span-2">
                     <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">Custom CSS</label>
-                    <textarea value={data.whiteLabel?.customCss || ''} onChange={(e) => handleChange('whiteLabel', 'customCss', e.target.value)} rows={5} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500 font-mono" placeholder="/* Custom CSS for portal */" />
+                    <textarea value={data.whiteLabel?.customCss || ''} onChange={(e) => handleChange('whiteLabel', 'customCss', e.target.value)} rows={5} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary font-mono" placeholder="/* Custom CSS for portal */" />
                   </div>
                 </div>
               </div>
@@ -163,19 +163,19 @@ export default function SettingsPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">Quote Prefix</label>
-                    <input type="text" value={data.settings?.quotePrefix || ''} onChange={(e) => handleChange('settings', 'quotePrefix', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                    <input type="text" value={data.settings?.quotePrefix || ''} onChange={(e) => handleChange('settings', 'quotePrefix', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">Order Prefix</label>
-                    <input type="text" value={data.settings?.orderPrefix || ''} onChange={(e) => handleChange('settings', 'orderPrefix', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                    <input type="text" value={data.settings?.orderPrefix || ''} onChange={(e) => handleChange('settings', 'orderPrefix', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">Invoice Prefix</label>
-                    <input type="text" value={data.settings?.invoicePrefix || ''} onChange={(e) => handleChange('settings', 'invoicePrefix', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                    <input type="text" value={data.settings?.invoicePrefix || ''} onChange={(e) => handleChange('settings', 'invoicePrefix', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">Quote Expiry Days</label>
-                    <input type="number" value={data.settings?.quoteExpiryDays || 30} onChange={(e) => handleChange('settings', 'quoteExpiryDays', Number(e.target.value))} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                    <input type="number" value={data.settings?.quoteExpiryDays || 30} onChange={(e) => handleChange('settings', 'quoteExpiryDays', Number(e.target.value))} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                   </div>
                 </div>
               </div>
@@ -202,7 +202,7 @@ export default function SettingsPage() {
                         type="button"
                         onClick={() => handleChange('settings', field, !data.settings?.[field])}
                         className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 focus:outline-none ${
-                          data.settings?.[field] ? 'bg-blue-600' : 'bg-[hsl(214,32%,85%)] dark:bg-[hsl(217,33%,25%)]'
+                          data.settings?.[field] ? 'bg-primary' : 'bg-[hsl(214,32%,85%)] dark:bg-[hsl(217,33%,25%)]'
                         }`}
                       >
                         <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform duration-200 ${
@@ -224,7 +224,7 @@ export default function SettingsPage() {
                   <div className="space-y-4">
                     <div>
                       <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">From Email Address</label>
-                      <input type="email" value={data.settings?.emailFromAddress || ''} onChange={(e) => handleChange('settings', 'emailFromAddress', e.target.value)} placeholder="no-reply@yourcompany.com" className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                      <input type="email" value={data.settings?.emailFromAddress || ''} onChange={(e) => handleChange('settings', 'emailFromAddress', e.target.value)} placeholder="no-reply@yourcompany.com" className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                     </div>
                   </div>
                 </div>
@@ -233,8 +233,8 @@ export default function SettingsPage() {
                   <h4 className="text-base font-semibold text-[hsl(222,47%,11%)] dark:text-white mb-4">Option 1 — Resend (Recommended)</h4>
                   <div>
                     <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">Resend API Key</label>
-                    <input type="password" placeholder={data.settings?.resendApiKeyEncrypted ? '••••••••••••••••' : 'Enter Resend API key'} onChange={(e) => handleChange('settings', 'resendApiKeyEncrypted', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
-                    <p className="mt-1.5 text-xs text-[hsl(215,16%,47%)]">Get your API key from <span className="font-mono text-blue-500">resend.com/api-keys</span></p>
+                    <input type="password" placeholder={data.settings?.resendApiKeyEncrypted ? '••••••••••••••••' : 'Enter Resend API key'} onChange={(e) => handleChange('settings', 'resendApiKeyEncrypted', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
+                    <p className="mt-1.5 text-xs text-[hsl(215,16%,47%)]">Get your API key from <span className="font-mono text-primary">resend.com/api-keys</span></p>
                   </div>
                 </div>
 
@@ -243,19 +243,19 @@ export default function SettingsPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">SMTP Host</label>
-                      <input type="text" value={data.settings?.smtpHost || ''} onChange={(e) => handleChange('settings', 'smtpHost', e.target.value)} placeholder="smtp.gmail.com" className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                      <input type="text" value={data.settings?.smtpHost || ''} onChange={(e) => handleChange('settings', 'smtpHost', e.target.value)} placeholder="smtp.gmail.com" className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">SMTP Port</label>
-                      <input type="number" value={data.settings?.smtpPort || ''} onChange={(e) => handleChange('settings', 'smtpPort', Number(e.target.value))} placeholder="587" className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                      <input type="number" value={data.settings?.smtpPort || ''} onChange={(e) => handleChange('settings', 'smtpPort', Number(e.target.value))} placeholder="587" className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">SMTP Username</label>
-                      <input type="text" value={data.settings?.smtpUser || ''} onChange={(e) => handleChange('settings', 'smtpUser', e.target.value)} placeholder="user@gmail.com" className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                      <input type="text" value={data.settings?.smtpUser || ''} onChange={(e) => handleChange('settings', 'smtpUser', e.target.value)} placeholder="user@gmail.com" className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">SMTP Password</label>
-                      <input type="password" placeholder={data.settings?.smtpPasswordEncrypted ? '••••••••' : 'Enter SMTP password'} onChange={(e) => handleChange('settings', 'smtpPasswordEncrypted', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                      <input type="password" placeholder={data.settings?.smtpPasswordEncrypted ? '••••••••' : 'Enter SMTP password'} onChange={(e) => handleChange('settings', 'smtpPasswordEncrypted', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                     </div>
                   </div>
                 </div>
@@ -342,7 +342,7 @@ export default function SettingsPage() {
                     type="button"
                     onClick={handleSendTestEmail}
                     disabled={testEmailLoading}
-                    className="flex items-center gap-2 rounded-lg bg-[hsl(221,83%,53%)] px-4 py-2 text-sm font-medium text-white hover:bg-[hsl(221,83%,48%)] disabled:opacity-60"
+                    className="flex items-center gap-2 rounded-lg bg-[hsl(var(--primary))] px-4 py-2 text-sm font-medium text-white hover:bg-[hsl(var(--primary))] disabled:opacity-60"
                   >
                     {testEmailLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
                     Send Test Email
@@ -443,11 +443,11 @@ export default function SettingsPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">Access Token</label>
-                      <input type="password" placeholder={data.settings?.squareAccessTokenEncrypted ? '••••••••••••••••' : 'Enter access token'} onChange={(e) => handleChange('settings', 'squareAccessTokenEncrypted', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                      <input type="password" placeholder={data.settings?.squareAccessTokenEncrypted ? '••••••••••••••••' : 'Enter access token'} onChange={(e) => handleChange('settings', 'squareAccessTokenEncrypted', e.target.value)} className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-[hsl(222,47%,11%)] dark:text-white mb-2">Location ID</label>
-                      <input type="text" value={data.settings?.squareLocationId || ''} onChange={(e) => handleChange('settings', 'squareLocationId', e.target.value)} placeholder="Enter Square location ID" className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-blue-500" />
+                      <input type="text" value={data.settings?.squareLocationId || ''} onChange={(e) => handleChange('settings', 'squareLocationId', e.target.value)} placeholder="Enter Square location ID" className="w-full rounded-md border border-[hsl(214,32%,91%)] px-3 py-2 text-sm outline-none dark:border-white/10 dark:bg-black/20 focus:border-primary" />
                     </div>
                   </div>
                 </div>

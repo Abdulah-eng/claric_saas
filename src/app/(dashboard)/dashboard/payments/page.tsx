@@ -7,7 +7,7 @@ import { DollarSign, TrendingUp, ArrowDownLeft, RefreshCw, Search, Filter } from
 const METHOD_COLORS: Record<string, string> = {
   STRIPE: 'bg-[hsl(258,90%,66%)]/10 text-[hsl(258,90%,66%)]',
   SQUARE: 'bg-gray-100 text-gray-700 dark:bg-white/10 dark:text-gray-300',
-  BANK_TRANSFER: 'bg-blue-100 text-blue-700 dark:bg-blue-500/20 dark:text-blue-300',
+  BANK_TRANSFER: 'bg-primary/10 text-primary dark:bg-primary/20 dark:text-blue-300',
   CASH: 'bg-green-100 text-green-700 dark:bg-green-500/20 dark:text-green-300',
   CHECK: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-500/20 dark:text-yellow-300',
   OTHER: 'bg-gray-100 text-gray-600 dark:bg-white/10 dark:text-gray-400',
@@ -75,8 +75,8 @@ export default function PaymentsPage() {
       label: 'Total Transactions',
       value: data.meta?.total ?? '—',
       icon: DollarSign,
-      color: 'text-blue-500',
-      bg: 'bg-blue-500/10',
+      color: 'text-primary',
+      bg: 'bg-primary/10',
     },
   ]
 
@@ -119,7 +119,7 @@ export default function PaymentsPage() {
             placeholder="Search by customer, invoice, reference..."
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-white py-2 pl-9 pr-4 text-sm outline-none focus:border-blue-500 dark:border-white/10 dark:bg-[hsl(222,47%,11%)] dark:text-white"
+            className="w-full rounded-lg border border-[hsl(214,32%,91%)] bg-white py-2 pl-9 pr-4 text-sm outline-none focus:border-primary dark:border-white/10 dark:bg-[hsl(222,47%,11%)] dark:text-white"
           />
         </div>
         <div className="flex items-center gap-2">
@@ -127,7 +127,7 @@ export default function PaymentsPage() {
           <select
             value={filterMethod}
             onChange={e => setFilterMethod(e.target.value)}
-            className="rounded-lg border border-[hsl(214,32%,91%)] bg-white px-3 py-2 text-sm outline-none focus:border-blue-500 dark:border-white/10 dark:bg-[hsl(222,47%,11%)] dark:text-white"
+            className="rounded-lg border border-[hsl(214,32%,91%)] bg-white px-3 py-2 text-sm outline-none focus:border-primary dark:border-white/10 dark:bg-[hsl(222,47%,11%)] dark:text-white"
           >
             <option value="">All Methods</option>
             <option value="STRIPE">Stripe</option>
@@ -139,7 +139,7 @@ export default function PaymentsPage() {
           <select
             value={filterStatus}
             onChange={e => setFilterStatus(e.target.value)}
-            className="rounded-lg border border-[hsl(214,32%,91%)] bg-white px-3 py-2 text-sm outline-none focus:border-blue-500 dark:border-white/10 dark:bg-[hsl(222,47%,11%)] dark:text-white"
+            className="rounded-lg border border-[hsl(214,32%,91%)] bg-white px-3 py-2 text-sm outline-none focus:border-primary dark:border-white/10 dark:bg-[hsl(222,47%,11%)] dark:text-white"
           >
             <option value="">All Statuses</option>
             <option value="COMPLETED">Completed</option>
@@ -186,7 +186,7 @@ export default function PaymentsPage() {
                       </span>
                     </td>
                     <td className="px-6 py-4">
-                      <span className="text-blue-600 dark:text-blue-400">
+                      <span className="text-primary dark:text-blue-400">
                         {payment.invoice?.invoiceNumber || '—'}
                       </span>
                     </td>

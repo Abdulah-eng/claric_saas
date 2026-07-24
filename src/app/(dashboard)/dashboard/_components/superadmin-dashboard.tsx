@@ -23,7 +23,7 @@ export async function SuperAdminDashboard({ session }: { session: any }) {
       change: '+2 this week',
       trend: 'up' as const,
       icon: Building2,
-      color: 'bg-gradient-to-br from-blue-500 to-blue-600',
+      color: 'bg-gradient-to-br from-primary to-primary',
     },
     {
       label: 'Active Companies',
@@ -54,7 +54,7 @@ export async function SuperAdminDashboard({ session }: { session: any }) {
   const recentActivity = [
     {
       icon: Building2,
-      color: 'bg-blue-500',
+      color: 'bg-primary',
       title: 'New company onboarded: Demo Company',
       subtitle: 'admin@demo-company.com',
       time: '1h ago',
@@ -74,7 +74,7 @@ export async function SuperAdminDashboard({ session }: { session: any }) {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-[hsl(222,47%,11%)] dark:text-white">
-            Super Admin Overview 👋
+            Super Admin Overview
           </h1>
           <p className="mt-1 text-sm text-[hsl(215,16%,47%)]">
             Here's the current status of the entire platform.

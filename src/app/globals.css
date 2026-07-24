@@ -5,7 +5,7 @@
 @layer base {
   :root {
     /* Brand Colors */
-    --primary: 221 83% 53%;
+    --primary: 16 100% 45%;
     --primary-foreground: 0 0% 100%;
     --secondary: 262 83% 58%;
     --secondary-foreground: 0 0% 100%;
@@ -21,7 +21,7 @@
     --card-foreground: 222 47% 11%;
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 221 83% 53%;
+    --ring: 16 100% 45%;
 
     /* Status */
     --success: 142 76% 36%;
@@ -35,12 +35,12 @@
     --radius: 0.625rem;
 
     /* Sidebar */
-    --sidebar-bg: 222 47% 11%;
-    --sidebar-fg: 215 20% 65%;
-    --sidebar-active-bg: 221 83% 53%;
-    --sidebar-active-fg: 0 0% 100%;
-    --sidebar-hover-bg: 215 28% 17%;
-    --sidebar-border: 215 28% 17%;
+    --sidebar-bg: 0 0% 100%;
+    --sidebar-fg: 215 16% 35%;
+    --sidebar-active-bg: 16 100% 96%;
+    --sidebar-active-fg: 16 100% 45%;
+    --sidebar-hover-bg: 210 40% 98%;
+    --sidebar-border: 214 32% 91%;
     --sidebar-width: 260px;
   }
 
@@ -53,9 +53,11 @@
     --card-foreground: 210 40% 98%;
     --border: 217 33% 17%;
     --input: 217 33% 17%;
-    --ring: 221 83% 60%;
+    --ring: 16 100% 45%;
     --sidebar-bg: 222 47% 6%;
     --sidebar-fg: 215 20% 65%;
+    --sidebar-active-bg: 16 100% 45%;
+    --sidebar-active-fg: 0 0% 100%;
     --sidebar-hover-bg: 217 33% 10%;
     --sidebar-border: 217 33% 12%;
   }

@@ -115,7 +115,7 @@ export function FollowUpsList({ followUps, targetId, targetType, onRefresh }: Pr
         {/* Pending Tasks */}
         <div className="space-y-4">
           <h4 className="font-medium text-sm text-[hsl(222,47%,11%)] dark:text-white flex items-center gap-2">
-            <Clock className="h-4 w-4 text-blue-500" /> Pending ({pending.length})
+            <Clock className="h-4 w-4 text-primary" /> Pending ({pending.length})
           </h4>
           
           {pending.length === 0 ? (
@@ -136,7 +136,7 @@ export function FollowUpsList({ followUps, targetId, targetType, onRefresh }: Pr
                         <p className="font-medium text-sm text-[hsl(222,47%,11%)] dark:text-white truncate pr-8">{f.title}</p>
                       </div>
                       {f.notes && <p className="text-xs text-[hsl(215,16%,47%)] mt-1 line-clamp-2">{f.notes}</p>}
-                      <div className={`mt-2 text-xs font-medium ${isOverdue ? 'text-red-600 dark:text-red-400' : 'text-blue-600 dark:text-blue-400'}`}>
+                      <div className={`mt-2 text-xs font-medium ${isOverdue ? 'text-red-600 dark:text-red-400' : 'text-primary dark:text-blue-400'}`}>
                         {isOverdue ? 'Overdue: ' : 'Due: '} {formatDate(f.dueDate)}
                       </div>
                     </div>

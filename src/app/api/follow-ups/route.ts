@@ -9,6 +9,7 @@ const followUpSchema = z.object({
   dueDate: z.string().or(z.date()).transform((val) => new Date(val)),
   customerId: z.string().optional(),
   leadId: z.string().optional(),
+  assignedToId: z.string().optional(),
 }).refine(data => data.customerId || data.leadId, {
   message: "Either customerId or leadId must be provided",
   path: ["customerId"],
@@ -33,6 +34,7 @@ export async function POST(req: Request) {
         dueDate: data.dueDate,
         customerId: data.customerId || null,
         leadId: data.leadId || null,
+        assignedToId: data.assignedToId || null,
       },
     })
 

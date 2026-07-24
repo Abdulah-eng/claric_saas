@@ -56,7 +56,7 @@ export default function ForgotPasswordPage() {
         
         {/* Logo */}
         <div className="mb-8 flex flex-col items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[hsl(221,83%,53%)] to-[hsl(262,83%,58%)] shadow-lg shadow-blue-500/30">
+          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[hsl(var(--primary))] to-[hsl(262,83%,58%)] shadow-lg shadow-primary/30">
             <Zap className="h-6 w-6 text-white" />
           </div>
           <div className="text-center">
@@ -79,7 +79,7 @@ export default function ForgotPasswordPage() {
               </p>
               <Link
                 href="/login"
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[hsl(221,83%,53%)] px-4 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[hsl(221,83%,48%)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[hsl(221,83%,53%)]"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[hsl(var(--primary))] px-4 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[hsl(var(--primary))] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[hsl(var(--primary))]"
               >
                 Return to log in
               </Link>
@@ -107,7 +107,7 @@ export default function ForgotPasswordPage() {
                   className={`block w-full rounded-xl border bg-black/20 px-4 py-2.5 text-white placeholder-white/30 outline-none transition-all focus:ring-2 ${
                     fieldErrors.email
                       ? 'border-red-500/50 focus:border-red-500/50 focus:ring-red-500/20'
-                      : 'border-white/10 hover:border-white/20 focus:border-[hsl(221,83%,53%)] focus:ring-[hsl(221,83%,53%)]/20'
+                      : 'border-white/10 hover:border-white/20 focus:border-[hsl(var(--primary))] focus:ring-[hsl(var(--primary))]/20'
                   }`}
                   placeholder="name@company.com"
                 />
@@ -119,7 +119,7 @@ export default function ForgotPasswordPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[hsl(221,83%,53%)] px-4 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[hsl(221,83%,48%)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[hsl(221,83%,53%)] disabled:opacity-70"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[hsl(var(--primary))] px-4 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[hsl(var(--primary))] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[hsl(var(--primary))] disabled:opacity-70"
               >
                 {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Reset password'}
               </button>

@@ -36,7 +36,7 @@ const STAGE_COLORS: Record<string, string> = {
   NEW: 'border-sky-200 bg-sky-50 dark:border-sky-800 dark:bg-sky-900/20',
   CONTACTED: 'border-purple-200 bg-purple-50 dark:border-purple-800 dark:bg-purple-900/20',
   QUALIFIED: 'border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-900/20',
-  PROPOSAL: 'border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-900/20',
+  PROPOSAL: 'border-blue-200 bg-primary/10 dark:border-blue-800 dark:bg-blue-900/20',
   WON: 'border-emerald-200 bg-emerald-50 dark:border-emerald-800 dark:bg-emerald-900/20',
   LOST: 'border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-900/20',
 }
@@ -45,7 +45,7 @@ const STAGE_HEADER: Record<string, string> = {
   NEW: 'bg-sky-500',
   CONTACTED: 'bg-purple-500',
   QUALIFIED: 'bg-amber-500',
-  PROPOSAL: 'bg-blue-500',
+  PROPOSAL: 'bg-primary',
   WON: 'bg-emerald-500',
   LOST: 'bg-red-500',
 }
@@ -183,7 +183,7 @@ export default function LeadsPage() {
       header: 'Assigned',
       render: (row: Lead) => row.assignedTo ? (
         <div className="flex items-center gap-1.5">
-          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-500 text-[10px] font-bold text-white">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white">
             {getInitials(row.assignedTo.name ?? 'U')}
           </div>
           <span className="text-xs">{row.assignedTo.name}</span>
@@ -204,13 +204,13 @@ export default function LeadsPage() {
             <div className="flex rounded-lg border border-[hsl(214,32%,91%)] bg-white p-0.5 dark:border-[hsl(217,33%,17%)] dark:bg-[hsl(222,47%,11%)]">
               <button
                 onClick={() => setView('kanban')}
-                className={`flex h-7 items-center gap-1.5 rounded-md px-2.5 text-xs font-medium transition-all ${view === 'kanban' ? 'bg-[hsl(221,83%,53%)] text-white shadow-sm' : 'text-[hsl(215,16%,47%)] hover:text-[hsl(222,47%,11%)] dark:hover:text-white'}`}
+                className={`flex h-7 items-center gap-1.5 rounded-md px-2.5 text-xs font-medium transition-all ${view === 'kanban' ? 'bg-[hsl(var(--primary))] text-white shadow-sm' : 'text-[hsl(215,16%,47%)] hover:text-[hsl(222,47%,11%)] dark:hover:text-white'}`}
               >
                 <Columns className="h-3.5 w-3.5" /> Kanban
               </button>
               <button
                 onClick={() => setView('list')}
-                className={`flex h-7 items-center gap-1.5 rounded-md px-2.5 text-xs font-medium transition-all ${view === 'list' ? 'bg-[hsl(221,83%,53%)] text-white shadow-sm' : 'text-[hsl(215,16%,47%)] hover:text-[hsl(222,47%,11%)] dark:hover:text-white'}`}
+                className={`flex h-7 items-center gap-1.5 rounded-md px-2.5 text-xs font-medium transition-all ${view === 'list' ? 'bg-[hsl(var(--primary))] text-white shadow-sm' : 'text-[hsl(215,16%,47%)] hover:text-[hsl(222,47%,11%)] dark:hover:text-white'}`}
               >
                 <List className="h-3.5 w-3.5" /> List
               </button>
@@ -231,13 +231,13 @@ export default function LeadsPage() {
             placeholder="Search leads..."
             value={search}
             onChange={(e) => { setSearch(e.target.value); setPage(1) }}
-            className="h-9 w-full rounded-lg border border-[hsl(214,32%,91%)] bg-white pl-9 pr-3 text-sm text-[hsl(222,47%,11%)] placeholder:text-[hsl(215,16%,60%)] outline-none focus:border-[hsl(221,83%,53%)] focus:ring-2 focus:ring-[hsl(221,83%,53%)]/20 dark:border-[hsl(217,33%,17%)] dark:bg-[hsl(222,47%,11%)] dark:text-white"
+            className="h-9 w-full rounded-lg border border-[hsl(214,32%,91%)] bg-white pl-9 pr-3 text-sm text-[hsl(222,47%,11%)] placeholder:text-[hsl(215,16%,60%)] outline-none focus:border-[hsl(var(--primary))] focus:ring-2 focus:ring-[hsl(var(--primary))]/20 dark:border-[hsl(217,33%,17%)] dark:bg-[hsl(222,47%,11%)] dark:text-white"
           />
         </div>
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="h-9 rounded-lg border border-[hsl(214,32%,91%)] bg-white px-3 text-sm text-[hsl(222,47%,11%)] outline-none focus:border-[hsl(221,83%,53%)] dark:border-[hsl(217,33%,17%)] dark:bg-[hsl(222,47%,11%)] dark:text-white"
+          className="h-9 rounded-lg border border-[hsl(214,32%,91%)] bg-white px-3 text-sm text-[hsl(222,47%,11%)] outline-none focus:border-[hsl(var(--primary))] dark:border-[hsl(217,33%,17%)] dark:bg-[hsl(222,47%,11%)] dark:text-white"
         >
           <option value="">All Stages</option>
           {STATUS_OPTIONS.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
@@ -308,7 +308,7 @@ export default function LeadsPage() {
                           </span>
                         ) : <span />}
                         {lead.assignedTo && (
-                          <div className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-500 text-[9px] font-bold text-white">
+                          <div className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[9px] font-bold text-white">
                             {getInitials(lead.assignedTo.name ?? 'U')}
                           </div>
                         )}
