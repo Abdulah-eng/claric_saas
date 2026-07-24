@@ -65,31 +65,60 @@ function LoginForm() {
   }
 
   return (
-    <div className="animate-in">
+    <div className="animate-in" style={{ '--primary-rgb': '249, 115, 22' } as React.CSSProperties}>
       {/* Logo */}
       <div className="mb-8 flex flex-col items-center gap-3">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[hsl(var(--primary))] to-[hsl(262,83%,58%)] shadow-lg shadow-primary/30">
-          <Zap className="h-6 w-6 text-white" />
+        <div
+          className="flex h-14 w-14 items-center justify-center rounded-2xl shadow-2xl"
+          style={{
+            background: 'linear-gradient(135deg, #f97316 0%, #ea580c 50%, #c2410c 100%)',
+            boxShadow: '0 0 30px rgba(249,115,22,0.4), 0 8px 24px rgba(0,0,0,0.3)',
+          }}
+        >
+          <Zap className="h-7 w-7 text-white" />
         </div>
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-white tracking-tight">Welcome back</h1>
-          <p className="mt-1 text-sm text-[hsl(215,20%,65%)]">Sign in to your Claric account</p>
+          <h1 className="text-3xl font-bold tracking-tight" style={{ color: '#fff' }}>
+            Welcome back
+          </h1>
+          <p className="mt-1 text-sm" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            Sign in to your CRM account
+          </p>
         </div>
       </div>
 
       {/* Card */}
-      <div className="glass rounded-2xl p-8 shadow-2xl">
+      <div
+        className="rounded-2xl p-8 shadow-2xl"
+        style={{
+          background: 'rgba(15, 10, 5, 0.6)',
+          border: '1px solid rgba(249, 115, 22, 0.15)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+        }}
+      >
         <form onSubmit={handleSubmit} className="space-y-5" noValidate>
           {/* Global error */}
           {error && (
-            <div className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-400">
+            <div
+              className="rounded-lg px-4 py-3 text-sm"
+              style={{
+                background: 'rgba(239,68,68,0.1)',
+                border: '1px solid rgba(239,68,68,0.3)',
+                color: '#f87171',
+              }}
+            >
               {error}
             </div>
           )}
 
           {/* Email */}
           <div className="space-y-1.5">
-            <label htmlFor="email" className="block text-sm font-medium text-[hsl(215,20%,75%)]">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium"
+              style={{ color: 'rgba(255,255,255,0.7)' }}
+            >
               Email address
             </label>
             <input
@@ -98,13 +127,30 @@ function LoginForm() {
               autoComplete="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className={`w-full rounded-lg border bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-[hsl(215,20%,45%)] transition-all outline-none focus:border-[hsl(var(--primary))] focus:ring-2 focus:ring-[hsl(var(--primary))]/20 ${
-                fieldErrors.email ? 'border-red-500/50' : 'border-white/10'
-              }`}
+              className="w-full rounded-lg px-4 py-3 text-sm text-white placeholder-white/30 outline-none transition-all"
+              style={{
+                background: 'rgba(255,255,255,0.05)',
+                border: fieldErrors.email
+                  ? '1px solid rgba(239,68,68,0.5)'
+                  : '1px solid rgba(249,115,22,0.2)',
+                boxShadow: 'none',
+              }}
+              onFocus={(e) => {
+                e.target.style.border = '1px solid rgba(249,115,22,0.6)'
+                e.target.style.boxShadow = '0 0 0 3px rgba(249,115,22,0.12)'
+              }}
+              onBlur={(e) => {
+                e.target.style.border = fieldErrors.email
+                  ? '1px solid rgba(239,68,68,0.5)'
+                  : '1px solid rgba(249,115,22,0.2)'
+                e.target.style.boxShadow = 'none'
+              }}
               placeholder="you@company.com"
             />
             {fieldErrors.email && (
-              <p className="text-xs text-red-400">{fieldErrors.email}</p>
+              <p className="text-xs" style={{ color: '#f87171' }}>
+                {fieldErrors.email}
+              </p>
             )}
           </div>
 
@@ -113,13 +159,15 @@ function LoginForm() {
             <div className="flex items-center justify-between">
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-[hsl(215,20%,75%)]"
+                className="block text-sm font-medium"
+                style={{ color: 'rgba(255,255,255,0.7)' }}
               >
                 Password
               </label>
               <Link
                 href="/forgot-password"
-                className="text-xs text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))] transition-colors"
+                className="text-xs font-medium transition-colors hover:opacity-80"
+                style={{ color: '#f97316' }}
               >
                 Forgot password?
               </Link>
@@ -131,22 +179,46 @@ function LoginForm() {
                 autoComplete="current-password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className={`w-full rounded-lg border bg-white/5 px-4 py-2.5 pr-10 text-sm text-white placeholder:text-[hsl(215,20%,45%)] transition-all outline-none focus:border-[hsl(var(--primary))] focus:ring-2 focus:ring-[hsl(var(--primary))]/20 ${
-                  fieldErrors.password ? 'border-red-500/50' : 'border-white/10'
-                }`}
+                className="w-full rounded-lg px-4 py-3 pr-11 text-sm text-white placeholder-white/30 outline-none transition-all"
+                style={{
+                  background: 'rgba(255,255,255,0.05)',
+                  border: fieldErrors.password
+                    ? '1px solid rgba(239,68,68,0.5)'
+                    : '1px solid rgba(249,115,22,0.2)',
+                  boxShadow: 'none',
+                }}
+                onFocus={(e) => {
+                  e.target.style.border = '1px solid rgba(249,115,22,0.6)'
+                  e.target.style.boxShadow = '0 0 0 3px rgba(249,115,22,0.12)'
+                }}
+                onBlur={(e) => {
+                  e.target.style.border = fieldErrors.password
+                    ? '1px solid rgba(239,68,68,0.5)'
+                    : '1px solid rgba(249,115,22,0.2)'
+                  e.target.style.boxShadow = 'none'
+                }}
                 placeholder="••••••••"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-[hsl(215,20%,50%)] hover:text-[hsl(215,20%,75%)] transition-colors"
+                className="absolute right-3 top-1/2 -translate-y-1/2 transition-colors"
+                style={{ color: 'rgba(255,255,255,0.4)' }}
+                onMouseEnter={(e) =>
+                  ((e.target as HTMLElement).style.color = 'rgba(249,115,22,0.8)')
+                }
+                onMouseLeave={(e) =>
+                  ((e.target as HTMLElement).style.color = 'rgba(255,255,255,0.4)')
+                }
                 aria-label={showPassword ? 'Hide password' : 'Show password'}
               >
                 {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
             </div>
             {fieldErrors.password && (
-              <p className="text-xs text-red-400">{fieldErrors.password}</p>
+              <p className="text-xs" style={{ color: '#f87171' }}>
+                {fieldErrors.password}
+              </p>
             )}
           </div>
 
@@ -155,7 +227,22 @@ function LoginForm() {
             id="btn-sign-in"
             type="submit"
             disabled={isLoading}
-            className="w-full rounded-lg bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(262,83%,58%)] px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all hover:shadow-primary/40 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary))] focus:ring-offset-2 focus:ring-offset-[hsl(222,47%,11%)]"
+            className="w-full rounded-lg px-4 py-3 text-sm font-semibold text-white transition-all disabled:cursor-not-allowed disabled:opacity-60"
+            style={{
+              background: isLoading
+                ? 'linear-gradient(135deg, #c2410c, #9a3412)'
+                : 'linear-gradient(135deg, #f97316 0%, #ea580c 50%, #c2410c 100%)',
+              boxShadow: '0 4px 20px rgba(249,115,22,0.35)',
+            }}
+            onMouseEnter={(e) => {
+              if (!isLoading)
+                (e.currentTarget as HTMLElement).style.boxShadow =
+                  '0 6px 28px rgba(249,115,22,0.55)'
+            }}
+            onMouseLeave={(e) => {
+              ;(e.currentTarget as HTMLElement).style.boxShadow =
+                '0 4px 20px rgba(249,115,22,0.35)'
+            }}
           >
             {isLoading ? (
               <span className="flex items-center justify-center gap-2">
@@ -170,9 +257,13 @@ function LoginForm() {
       </div>
 
       {/* Footer */}
-      <p className="mt-6 text-center text-xs text-[hsl(215,20%,45%)]">
+      <p className="mt-6 text-center text-xs" style={{ color: 'rgba(255,255,255,0.35)' }}>
         Protected by end-to-end encryption &middot;{' '}
-        <Link href="/privacy" className="hover:text-[hsl(215,20%,65%)] transition-colors">
+        <Link
+          href="/privacy"
+          className="transition-colors hover:opacity-80"
+          style={{ color: 'rgba(249,115,22,0.7)' }}
+        >
           Privacy Policy
         </Link>
       </p>

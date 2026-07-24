@@ -6,6 +6,7 @@ import { Plus, Trash2, ArrowLeft, Save, FileText, X, CheckCircle, Send } from 'l
 import { PageHeader } from '@/components/ui/data-table'
 import { Button } from '@/components/ui/button'
 import { Input, Select, Textarea } from '@/components/ui/form'
+import { Switch } from '@/components/ui/switch'
 import { formatCurrency } from '@/lib/utils'
 
 type LineItem = {
@@ -577,11 +578,9 @@ export default function NewQuotePage() {
                 return (
                   <div key={key} className="flex items-center justify-between">
                     <span className="text-xs font-semibold text-[hsl(215,16%,47%)]">{label}</span>
-                    <input
-                      type="checkbox"
+                    <Switch
                       checked={enabled}
-                      onChange={(e) => setSections(prev => ({ ...prev, [key]: e.target.checked }))}
-                      className="h-4 w-8 rounded-full text-orange-600 focus:ring-orange-500 border-gray-300 cursor-pointer"
+                      onCheckedChange={(checked) => setSections(prev => ({ ...prev, [key]: checked }))}
                     />
                   </div>
                 )
